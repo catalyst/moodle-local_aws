@@ -611,7 +611,7 @@ spl_autoload_register(function ($class) use ($mapping) {
 }, true);
 
 require_once __DIR__ . '/Aws/functions.php';
-require_once __DIR__ . '/GuzzleHttp/functions.php';
-require_once __DIR__ . '/GuzzleHttp/Psr7/functions.php';
-require_once __DIR__ . '/GuzzleHttp/Promise/functions.php';
+require_once __DIR__ . '/GuzzleHttp/functions_include.php';
+require_once __DIR__ . '/GuzzleHttp/Psr7/functions_include.php';
+require_once __DIR__ . '/GuzzleHttp/Promise/functions_include.php';
 require_once __DIR__ . '/JmesPath/JmesPath.php';

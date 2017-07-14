@@ -14,6 +14,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionApplicationDiscoveryService(array $args = [])
  * @method \Aws\Appstream\AppstreamClient createAppstream(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionAppstream(array $args = [])
+ * @method \Aws\Athena\AthenaClient createAthena(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionAthena(array $args = [])
  * @method \Aws\AutoScaling\AutoScalingClient createAutoScaling(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionAutoScaling(array $args = [])
  * @method \Aws\Batch\BatchClient createBatch(array $args = [])
@@ -48,6 +50,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionCodeDeploy(array $args = [])
  * @method \Aws\CodePipeline\CodePipelineClient createCodePipeline(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionCodePipeline(array $args = [])
+ * @method \Aws\CodeStar\CodeStarClient createCodeStar(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionCodeStar(array $args = [])
  * @method \Aws\CognitoIdentity\CognitoIdentityClient createCognitoIdentity(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionCognitoIdentity(array $args = [])
  * @method \Aws\CognitoIdentityProvider\CognitoIdentityProviderClient createCognitoIdentityProvider(array $args = [])
@@ -58,6 +62,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionConfigService(array $args = [])
  * @method \Aws\CostandUsageReportService\CostandUsageReportServiceClient createCostandUsageReportService(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionCostandUsageReportService(array $args = [])
+ * @method \Aws\DAX\DAXClient createDAX(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionDAX(array $args = [])
  * @method \Aws\DataPipeline\DataPipelineClient createDataPipeline(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionDataPipeline(array $args = [])
  * @method \Aws\DatabaseMigrationService\DatabaseMigrationServiceClient createDatabaseMigrationService(array $args = [])
@@ -100,6 +106,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionGameLift(array $args = [])
  * @method \Aws\Glacier\GlacierClient createGlacier(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionGlacier(array $args = [])
+ * @method \Aws\Greengrass\GreengrassClient createGreengrass(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionGreengrass(array $args = [])
  * @method \Aws\Health\HealthClient createHealth(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionHealth(array $args = [])
  * @method \Aws\Iam\IamClient createIam(array $args = [])
@@ -120,6 +128,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionKms(array $args = [])
  * @method \Aws\Lambda\LambdaClient createLambda(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionLambda(array $args = [])
+ * @method \Aws\LexModelBuildingService\LexModelBuildingServiceClient createLexModelBuildingService(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionLexModelBuildingService(array $args = [])
  * @method \Aws\LexRuntimeService\LexRuntimeServiceClient createLexRuntimeService(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionLexRuntimeService(array $args = [])
  * @method \Aws\Lightsail\LightsailClient createLightsail(array $args = [])
@@ -130,6 +140,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionMachineLearning(array $args = [])
  * @method \Aws\MarketplaceCommerceAnalytics\MarketplaceCommerceAnalyticsClient createMarketplaceCommerceAnalytics(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionMarketplaceCommerceAnalytics(array $args = [])
+ * @method \Aws\MarketplaceEntitlementService\MarketplaceEntitlementServiceClient createMarketplaceEntitlementService(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionMarketplaceEntitlementService(array $args = [])
  * @method \Aws\MarketplaceMetering\MarketplaceMeteringClient createMarketplaceMetering(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionMarketplaceMetering(array $args = [])
  * @method \Aws\OpsWorks\OpsWorksClient createOpsWorks(array $args = [])
@@ -195,7 +207,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.25.6';
+    const VERSION = '3.31.4';
 
     /** @var array Arguments for creating clients */
     private $args;

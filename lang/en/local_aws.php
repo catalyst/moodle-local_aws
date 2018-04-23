@@ -25,3 +25,4 @@
    */
 
 $string['pluginname'] = "Amazon's SDK for PHP";
+$string['privacy:metadata'] = 'The local_aws plugin does not store any data.';

@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017071501;      // The current plugin version (Date: YYYYMMDDXX).
-$plugin->release   = 2017071501;      // Same as version.
+$plugin->version   = 2018052300;      // The current plugin version (Date: YYYYMMDDXX).
+$plugin->release   = 2018052300;      // Same as version.
 $plugin->requires  = 2013111811;
 $plugin->component = "local_aws";
 $plugin->maturity  = MATURITY_STABLE;

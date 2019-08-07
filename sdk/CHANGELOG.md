@@ -1,5 +1,65 @@
 # CHANGELOG
 
+## 3.108.5 - 2019-08-06
+
+* `Aws\Batch` - Documentation updates for AWS Batch
+
+## 3.108.4 - 2019-08-05
+
+* `Aws\DataSync` - Support VPC endpoints.
+* `Aws\EC2` - Amazon EC2 now supports a new Spot allocation strategy "Capacity-optimized" that fulfills your request using Spot Instance pools that are optimally chosen based on the available Spot capacity.
+* `Aws\IoT` - In this release, AWS IoT Device Defender introduces audit mitigation actions that can be applied to audit findings to help mitigate security issues.
+
+## 3.108.3 - 2019-08-02
+
+* `Aws\` - Added static code analysis using PHPStan to Travis CI configuration.
+* `Aws\STS` - Documentation updates for sts
+
+## 3.108.2 - 2019-07-30
+
+* `Aws\MediaConvert` - MediaConvert adds support for specifying priority (-50 to 50) on jobs submitted to on demand or reserved queues
+* `Aws\Polly` - Amazon Polly adds support for Neural text-to-speech engine.
+* `Aws\Route53` - Amazon Route 53 now supports the Middle East (Bahrain) Region (me-south-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region.
+
+## 3.108.1 - 2019-07-29
+
+* `Aws\CodeCommit` - This release supports better exception handling for merges.
+
+## 3.108.0 - 2019-07-26
+
+* `Aws\Batch` - AWS Batch now supports SDK auto-pagination and Job-level docker devices.
+* `Aws\CloudWatchLogs` - Allow for specifying multiple log groups in an Insights query, and deprecate storedByte field for LogStreams and interleaved field for FilterLogEventsRequest.
+* `Aws\CostExplorer` - Adds support for resource optimization recommendations.
+* `Aws\Credentials` - Update web identity provider to handle all exceptions.
+* `Aws\EC2` - You can now create EC2 Capacity Reservations using Availability Zone ID or Availability Zone name. You can view usage of Amazon EC2 Capacity Reservations per AWS account.
+* `Aws\Glue` - This release provides GetJobBookmark and GetJobBookmarks APIs. These APIs enable users to look at specific versions or all versions of the JobBookmark for a specific job. This release also enables resetting the job bookmark to a specific run via an enhancement of the ResetJobBookmark API.
+* `Aws\Greengrass` - Greengrass OTA service supports openwrt/aarch64 and openwrt/armv7l platforms.
+* `Aws\MediaConnect` - This release adds support for the Zixi pull protocol on outputs.
+* `Aws\Sts` - Added support for STS regional endpoints and corresponding configuration.
+
+## 3.107.8 - 2019-07-25
+
+* `Aws\ECR` - This release adds support for immutable image tags.
+* `Aws\MediaConvert` - AWS Elemental MediaConvert has added several features including support for: audio normalization using ITU BS.1770-3, 1770-4 algorithms, extension of job progress indicators, input cropping rectangle & output position rectangle filters per input, and dual SCC caption mapping to additional codecs and containers. 
+* `Aws\MediaLive` - AWS Elemental MediaLive is adding Input Clipping, Immediate Mode Input Switching, and Dynamic Inputs.
+
+## 3.107.7 - 2019-07-24
+
+* `Aws\EC2` - This release introduces support for split tunnel with AWS Client VPN, and also adds support for opt-in Regions in DescribeRegions API. In addition, customers can now also tag Launch Templates on creation.
+* `Aws\Glue` - This release provides GlueVersion option for Job APIs and WorkerType option for DevEndpoint APIs. Job APIs enable users to pick specific GlueVersion for a specific job and pin the job to a specific runtime environment. DevEndpoint APIs enable users to pick different WorkerType for memory intensive workload.
+* `Aws\Pinpoint` - This release adds support for programmatic access to many of the same campaign metrics that are displayed on the Amazon Pinpoint console. You can now use the Amazon Pinpoint API to monitor and assess performance data for campaigns, and integrate metrics data with other reporting tools. We update the metrics data continuously, resulting in a data latency timeframe that is limited to approximately two hours.
+* `Aws\STS` - New STS GetAccessKeyInfo API operation that returns the account identifier for the specified access key ID.
+
+## 3.107.6 - 2019-07-23
+
+* `Aws\SSM` - You can now use Maintenance Windows to select a resource group as the target. By selecting a resource group as the target of a Maintenance Window, customers can perform routine tasks across different resources such as Amazon Elastic Compute Cloud (AmazonEC2) instances, Amazon Elastic Block Store (Amazon EBS) volumes, and Amazon Simple Storage Service(Amazon S3) buckets within the same recurring time window.
+* `Aws\SecretsManager` - This release increases the maximum allowed size of SecretString or SecretBinary from 7KB to 10KB in the CreateSecret, UpdateSecret, PutSecretValue and GetSecretValue APIs. This release also increases the maximum allowed size of ResourcePolicy from 4KB to 20KB in the GetResourcePolicy and PutResourcePolicy APIs.
+
+## 3.107.5 - 2019-07-22
+
+* `Aws\MQ` - Adds support for AWS Key Management Service (KMS) to offer server-side encryption. You can now select your own customer managed CMK, or use an AWS managed CMK in your KMS account.
+* `Aws\Shield` - Adding new VectorType (HTTP_Reflection) and related top contributor types to describe WordPress Pingback DDoS attacks.
+
 ## 3.107.4 - 2019-07-19
 
 * `Aws\IoTEvents` - Adds support for IoT Events, Lambda, SQS and Kinesis Firehose actions.

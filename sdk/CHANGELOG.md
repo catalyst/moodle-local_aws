@@ -1,5 +1,200 @@
 # CHANGELOG
 
+## 3.115.0 - 2019-11-07
+
+* `Aws\Comprehend` - This release adds new languages (ar, hi, ko, ja, zh, zh-TW) for Amazon Comprehend's DetectSentiment, DetectEntities, DetectKeyPhrases, BatchDetectSentiment, BatchDetectEntities and BatchDetectKeyPhrases APIs
+* `Aws\SSM` - AWS Systems Manager Session Manager target length increased to 400.
+* `Aws\SSO` - This is an initial release of AWS Single Sign-On (SSO) end-user access. This release adds support for accessing AWS accounts assigned in AWS SSO using short term credentials.
+* `Aws\SSOOIDC` - This is an initial release of AWS Single Sign-On OAuth device code authorization service.
+
+## 3.114.1 - 2019-11-06
+
+* `Aws\SavingsPlans` - This is the first release of Savings Plans, a new flexible pricing model that offers low prices on Amazon EC2 and AWS Fargate usage.
+
+## 3.114.0 - 2019-11-06
+
+* `Aws\Budgets` - Documentation updates for budgets to track Savings Plans utilization and coverage
+* `Aws\CodeBuild` - Add support for Build Number, Secrets Manager and Exported Environment Variables.
+* `Aws\CostExplorer` - This launch provides customers with access to Savings Plans management APIs.
+* `Aws\EFS` - EFS customers can select a lifecycle policy that automatically moves files that have not been accessed for 7 days into the EFS Infrequent Access (EFS IA) storage class. EFS IA provides price/performance that is cost-optimized for files that are not accessed every day.
+* `Aws\SavingsPlans` - This is the first release of Savings Plans, a new flexible pricing model that offers low prices on Amazon EC2 and AWS Fargate usage.
+* `Aws\signer` - This release adds support for tagging code-signing profiles in AWS Signer.
+
+## 3.113.0 - 2019-11-05
+
+* `Aws\CodeStarNotifications` - This release adds a notification manager for events in repositories, build projects, deployments, and pipelines. You can now configure rules and receive notifications about events that occur for resources. Each notification includes a status message as well as a link to the resource (repository, build project, deployment application, or pipeline) whose event generated the notification.
+* `Aws\RDS` - Documentation updates for Amazon RDS
+
+## 3.112.35 - 2019-11-04
+
+* `Aws\DAX` - Documentation updates for dax
+* `Aws\EC2` - Documentation updates for ec2
+* `Aws\RoboMaker` - RoboMaker Fleet Management launch a feature to verify your robot is ready to download and install the new robot application using a download condition file, which is a script run on the robot prior to downloading the new deployment. 
+
+## 3.112.34 - 2019-11-01
+
+* `Aws\CloudTrail` - This release adds two new APIs, GetTrail and ListTrails, and support for adding tags when you create a trail by using a new TagsList parameter on CreateTrail operations.
+* `Aws\DatabaseMigrationService` - This release contains task timeline attributes in replication task statistics. This release also adds a note to the documentation for the CdcStartPosition task request parameter. This note describes how to enable the use of native CDC start points for a PostgreSQL source by setting the new slotName extra connection attribute on the source endpoint to the name of an existing logical replication slot.
+* `Aws\Pinpoint` - This release of the Amazon Pinpoint API introduces support for using and managing journeys, and querying analytics data for journeys.
+
+## 3.112.33 - 2019-10-31
+
+* `Aws\Amplify` - This release of AWS Amplify Console introduces support for Web Previews. This feature allows user to create ephemeral branch deployments from pull request submissions made to a connected repository. A pull-request preview deploys every pull request made to your Git repository to a unique preview URL.
+* `Aws\S3` - S3 Inventory now supports a new field 'IntelligentTieringAccessTier' that reports the access tier (frequent or infrequent) of objects stored in Intelligent-Tiering storage class.
+* `Aws\Support` - The status descriptions for TrustedAdvisorCheckRefreshStatus have been updated
+
+## 3.112.32 - 2019-10-30
+
+* `Aws\ElastiCache` - Amazon ElastiCache for Redis 5.0.5 now allows you to modify authentication tokens by setting and rotating new tokens. You can now modify active tokens while in use, or add brand-new tokens to existing encryption-in-transit enabled clusters that were previously setup without authentication tokens. This is a two-step process that allows you to set and rotate the token without interrupting client requests.
+
+## 3.112.31 - 2019-10-29
+
+* `Aws\AppStream` - Adds support for providing domain names that can embed streaming sessions
+* `Aws\Cloud9` - Added CREATING and CREATE_FAILED environment lifecycle statuses. 
+
+## 3.112.30 - 2019-10-28
+
+* `Aws\S3` - Adding support in SelectObjectContent for scanning a portion of an object specified by a scan range.
+
+## 3.112.29 - 2019-10-28
+
+* `Aws\ECR` - This release of Amazon Elastic Container Registry Service (Amazon ECR) introduces support for image scanning. This identifies the software vulnerabilities in the container image based on the Common Vulnerabilities and Exposures (CVE) database.
+* `Aws\ElastiCache` - Amazon ElastiCache adds support for migrating Redis workloads hosted on Amazon EC2 into ElastiCache by syncing the data between the source Redis cluster and target ElastiCache for Redis cluster in real time. For more information, see https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/migrate-to-elasticache.html.
+* `Aws\Transfer` - This release adds logical directories support to your AWS SFTP server endpoint, so you can now create logical directory structures mapped to Amazon Simple Storage Service (Amazon S3) bucket paths for users created and stored within the service. Amazon S3 bucket names and paths can now be hidden from AWS SFTP users, providing an additional level of privacy to meet security requirements. You can lock down your SFTP users' access to designated folders (commonly referred to as 'chroot'), and simplify complex folder structures for data distribution through SFTP without replicating files across multiple users.
+
+## 3.112.28 - 2019-10-24
+
+* `Aws\AppMesh` - This release adds support for the gRPC and HTTP/2 protocols.
+* `Aws\Chime` - * This release introduces Voice Connector PDX region and defaults previously created Voice Connectors to IAD. You can create Voice Connector Groups and add region specific Voice Connectors to direct telephony traffic across AWS regions in case of regional failures. With this release you can add phone numbers to Voice Connector Groups and can bulk move phone numbers between Voice Connectors, between Voice Connector and Voice Connector Groups and between Voice Connector Groups. Voice Connector now supports additional settings to enable SIP Log capture. This is in addition to the launch of Voice Connector Cloud Watch metrics in this release. This release also supports assigning outbound calling name (CNAM) to AWS account and individual phone numbers assigned to Voice Connectors. * Voice Connector now supports a setting to enable real time audio streaming delivered via Kinesis Audio streams. Please note that recording Amazon Chime Voice Connector calls with this feature maybe be subject to laws or regulations regarding the recording of telephone calls and other electronic communications. AWS Customer and their end users' have the responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or to a recorded communication that the session or communication is being recorded and obtain their consent.
+* `Aws\EC2` - This release updates CreateFpgaImage to support tagging FPGA images on creation
+* `Aws\GameLift` - Amazon GameLift offers expanded hardware options for game hosting: Custom game builds can use the Amazon Linux 2 operating system, and fleets for both custom builds and Realtime servers can now use C5, M5, and R5 instance types.
+* `Aws\SageMaker` - Adds support for the new family of Elastic Inference Accelerators (eia2) for SageMaker Hosting and Notebook Services
+
+## 3.112.27 - 2019-10-23
+
+* `Aws\Connect` - This release adds 4 new APIs ListQueues, ListPhoneNumbers, ListContactFlows, and ListHoursOfOperations, which can be used to programmatically list Queues, PhoneNumbers, ContactFlows, and HoursOfOperations configured for an Amazon Connect instance respectively. You can learn more about the new APIs here: https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.html.
+* `Aws\Polly` - Amazon Polly adds new female voices: US Spanish - Lupe and Brazilian Portuguese - Camila; both voices are available in Standard and Neural engine.
+* `Aws\STS` - AWS Security Token Service (STS) now supports a regional configuration flag to make the client respect the region without the need for the endpoint parameter. 
+
+## 3.112.26 - 2019-10-22
+
+* `Aws\IoTEvents` - Add support for new serial evaluation method for events in a detector model.
+* `Aws\OpsWorksCM` - AWS OpsWorks for Chef Automate (OWCA) now allows customers to use a custom domain and respective certificate, for their AWS OpsWorks For Chef Automate servers. Customers can now provide a CustomDomain, CustomCertificate and CustomPrivateKey in CreateServer API to configure their Chef Automate servers with a custom domain and certificate.
+
+## 3.112.25 - 2019-10-18
+
+* `Aws\CloudWatch` - New Period parameter added to MetricDataQuery structure.
+
+## 3.112.24 - 2019-10-17
+
+* `Aws\Batch` - Adding support for Compute Environment Allocation Strategies 
+* `Aws\RDS` - Amazon RDS now supports Amazon RDS on VMware with the introduction of APIs related to Custom Availability Zones and Media installation.
+* `Aws\WorkSpaces` - Updates Smoke Test
+
+## 3.112.23 - 2019-10-16
+
+* `Aws\Kafka` - AWS MSK has added support for adding brokers to a cluster.
+* `Aws\MarketplaceCommerceAnalytics` - add 2 more values for the supporting sections - age of past due funds + uncollected funds breakdown
+* `Aws\RoboMaker` - This release adds support for ROS2 Dashing as a beta feature
+
+## 3.112.22 - 2019-10-15
+
+* `Aws\KinesisVideoArchivedMedia` - Add ON_DISCONTINUITY mode to the GetHLSStreamingSessionURL API
+
+## 3.112.21 - 2019-10-14
+
+* `Aws\Personalize` - AWS Personalize: Adds ability to create a solution version using FULL or UPDATE training mode
+* `Aws\WorkSpaces` - Documentation updates for WorkSpaces
+
+## 3.112.20 - 2019-10-11
+
+* `Aws\Greengrass` - Greengrass OTA service supports Raspbian/Armv6l platforms.
+
+## 3.112.19 - 2019-10-10
+
+* `Aws\EC2` - New EC2 M5n, M5dn, R5n, R5dn instances with 100 Gbps network performance and Elastic Fabric Adapter (EFA) for ultra low latency; New A1.metal bare metal instance powered by AWS Graviton Processors
+* `Aws\FMS` - Firewall Manager now supports Amazon VPC security groups, making it easier to configure and manage security groups across multiple accounts from a single place.
+* `Aws\IoTAnalytics` - Add `completionTime` to API call ListDatasetContents.
+* `Aws\LexRuntimeService` - Amazon Lex now supports Session API checkpoints
+
+## 3.112.18 - 2019-10-09
+
+* `Aws\ElastiCache` - Amazon ElastiCache now allows you to apply available service updates on demand to your Memcached and Redis Cache Clusters. Features included: (1) Access to the list of applicable service updates and their priorities. (2) Service update monitoring and regular status updates. (3) Recommended apply-by-dates for scheduling the service updates. (4) Ability to stop and later re-apply updates. For more information, see https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Self-Service-Updates.html and https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Self-Service-Updates.html
+* `Aws\Kafka` - Updated documentation for Amazon Managed Streaming for Kafka service.
+* `Aws\MediaConvert` - AWS Elemental MediaConvert SDK has added support for Dolby Atmos encoding, up to 36 outputs, accelerated transcoding with frame capture and preferred acceleration feature.
+
+## 3.112.17 - 2019-10-08
+
+* `Aws\DataSync` - Add Sync options to enable/disable TaskQueueing
+* `Aws\EventBridge` - Documentation updates for Amazon EventBridge.
+* `Aws\Firehose` - With this release, you can use Amazon Kinesis Firehose delivery streams to deliver streaming data to Amazon Elasticsearch Service version 7.x clusters. For technical documentation, look for CreateDeliveryStream operation in Amazon Kinesis Firehose API reference.
+* `Aws\Organizations` - Documentation updates for organizations
+
+## 3.112.16 - 2019-10-07
+
+* `Aws\DirectConnect` - This release adds a service provider field for physical connection creation and provides a list of available partner providers for each Direct Connect location.
+* `Aws\Firehose` - Amazon Kinesis Data Firehose now allows delivering data to Elasticsearch clusters set up in a different AWS account than the Firehose AWS account. For technical documentation, look for ElasticsearchDestinationConfiguration in the Amazon Kinesis Firehose API reference.
+* `Aws\Glue` - AWS Glue now provides ability to use custom certificates for JDBC Connections.
+* `Aws\Pinpoint` - This release of the Amazon Pinpoint API introduces support for using and managing message templates.
+* `Aws\PinpointEmail` - This release of the Amazon Pinpoint Email API introduces support for using and managing message templates.
+* `Aws\Snowball` - AWS Snowball Edge now allows you to perform an offline update to the software of your Snowball Edge device when your device is not connected to the internet. Previously, updating your Snowball Edge's software required that the device be connected to the internet or be sent back to AWS. Now, you can keep your Snowball Edge software up to date even if your device(s) cannot connect to the internet, or are required to run in an air-gapped environment. To complete offline updates, download the software update from a client machine with connection to the internet using the AWS Command Line Interface (CLI). Then, have the Snowball Edge device download and install the software update using the Snowball Edge device API. For more information about offline updates, visit the Snowball Edge documentation page.
+
+## 3.112.15 - 2019-10-04
+
+* `Aws\CognitoIdentityProvider` - This release adds ClientMetadata input parameter to multiple Cognito User Pools operations, making this parameter available to the customer configured lambda triggers as applicable. 
+* `Aws\MediaPackage` - New Harvest Job APIs to export segment-accurate content windows from MediaPackage Origin Endpoints to S3. See https://docs.aws.amazon.com/mediapackage/latest/ug/harvest-jobs.html for more info
+* `Aws\SSM` - Documentation updates for Systems Manager / StartSession.
+
+## 3.112.14 - 2019-10-03
+
+* `Aws\ApplicationAutoScaling` - Documentation updates for Application Auto Scaling
+* `Aws\Credentials` - Fixed an issue that the credentials by process provider won't cache.
+* `Aws\DeviceFarm` - Documentation updates for devicefarm
+* `Aws\EC2` - This release allows customers to purchase regional EC2 RIs on a future date.
+* `Aws\ElasticsearchService` - Amazon Elasticsearch Service now supports configuring additional options for domain endpoint, such as whether to require HTTPS for all traffic.
+
+## 3.112.13 - 2019-10-02
+
+* `Aws\Lightsail` - This release adds support for the automatic snapshots add-on for instances and block storage disks.
+
+## 3.112.12 - 2019-10-01
+
+* `Aws\DocDB` - This release provides support for describe and modify CA certificates.
+
+## 3.112.11 - 2019-09-30
+
+* `Aws\MQ` - Amazon MQ now includes the ability to scale your brokers by changing the host instance type. See the hostInstanceType property of UpdateBrokerInput (https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id.html#brokers-broker-id-model-updatebrokerinput), and pendingHostInstanceType property of DescribeBrokerOutput (https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id.html#brokers-broker-id-model-describebrokeroutput).
+* `Aws\RDS` - This release adds support for creating a Read Replica with Active Directory domain information. This release updates RDS API to indicate whether an OrderableDBInstanceOption supports Kerberos Authentication.
+* `Aws\WAF` - Lowering the threshold for Rate Based rule from 2000 to 100.
+
+## 3.112.10 - 2019-09-27
+
+* `Aws\Amplify` - This release adds access logs APIs and artifact APIs for AWS Amplify Console.
+* `Aws\ECS` - This release of Amazon Elastic Container Service (Amazon ECS) removes FirelensConfiguration from the DescribeTask output during the FireLens public preview.
+
+## 3.112.9 - 2019-09-26
+
+* `Aws\CodePipeline` - Documentation updates for CodePipeline
+* `Aws\SSM` - This release updates the AWS Systems Manager Parameter Store PutParameter and LabelParameterVersion APIs to return the "Tier" of parameter created/updated and the "parameter version" labeled respectively. 
+
+## 3.112.8 - 2019-09-25
+
+* `Aws\DatabaseMigrationService` - This release adds a new DeleteConnection API to delete the connection between a replication instance and an endpoint. It also adds an optional S3 setting to specify the precision of any TIMESTAMP column values written to an S3 object file in .parquet format.
+* `Aws\GlobalAccelerator` - API Update for AWS Global Accelerator to support for DNS aliasing.
+* `Aws\SageMaker` - Enable G4D and R5 instances in SageMaker Hosting Services
+
+## 3.112.7 - 2019-09-24
+
+* `Aws\ComprehendMedical` - Use Amazon Comprehend Medical to analyze medical text stored in the specified Amazon S3 bucket. Use the console to create and manage batch analysis jobs, or use the batch APIs to detect both medical entities and protected health information (PHI). The batch APIs start, stop, list, and retrieve information about batch analysis jobs. This release also includes DetectEntitiesV2 operation which returns the Acuity and Direction entities as attributes instead of types.
+* `Aws\DataSync` - Added S3StorageClass, OverwriteMode sync option, and ONLY_FILES_TRANSFERRED setting for the VerifyMode sync option.
+* `Aws\S3` - Tweak S3 stream wrapper size logic for seekable streams.
+* `Aws\TranscribeService` - With this update Amazon Transcribe enables you to provide an AWS KMS key to encrypt your transcription output.
+
+## 3.112.6 - 2019-09-23
+
+* `Aws\RDSDataService` - RDS Data API now supports Amazon Aurora Serverless PostgreSQL databases.
+* `Aws\Redshift` - Adds API operation DescribeNodeConfigurationOptions and associated data structures.
+
 ## 3.112.5 - 2019-09-20
 
 * `Aws\EC2` - G4 instances are Amazon EC2 instances based on NVIDIA T4 GPUs and are designed to provide cost-effective machine learning inference for applications, like image classification, object detection, recommender systems, automated speech recognition, and language translation. G4 instances are also a cost-effective platform for building and running graphics-intensive applications, such as remote graphics workstations, video transcoding, photo-realistic design, and game streaming in the cloud. To get started with G4 instances visit https://aws.amazon.com/ec2/instance-types/g4.

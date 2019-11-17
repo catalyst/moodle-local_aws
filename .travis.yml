@@ -35,6 +35,8 @@ matrix:
       env: DB=pgsql MOODLE_BRANCH=MOODLE_36_STABLE
     - php: 7.2
       env: DB=pgsql MOODLE_BRANCH=MOODLE_37_STABLE
+    - php: 7.2
+      env: DB=pgsql MOODLE_BRANCH=MOODLE_38_STABLE
     - php: 7.3
       env: DB=pgsql MOODLE_BRANCH=master
 

@@ -90,6 +90,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionCodeStar(array $args = [])
  * @method \Aws\CodeStarNotifications\CodeStarNotificationsClient createCodeStarNotifications(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionCodeStarNotifications(array $args = [])
+ * @method \Aws\CodeStarconnections\CodeStarconnectionsClient createCodeStarconnections(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionCodeStarconnections(array $args = [])
  * @method \Aws\CognitoIdentity\CognitoIdentityClient createCognitoIdentity(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionCognitoIdentity(array $args = [])
  * @method \Aws\CognitoIdentityProvider\CognitoIdentityProviderClient createCognitoIdentityProvider(array $args = [])
@@ -124,6 +126,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionDataSync(array $args = [])
  * @method \Aws\DatabaseMigrationService\DatabaseMigrationServiceClient createDatabaseMigrationService(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionDatabaseMigrationService(array $args = [])
+ * @method \Aws\Detective\DetectiveClient createDetective(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionDetective(array $args = [])
  * @method \Aws\DeviceFarm\DeviceFarmClient createDeviceFarm(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionDeviceFarm(array $args = [])
  * @method \Aws\DirectConnect\DirectConnectClient createDirectConnect(array $args = [])
@@ -136,6 +140,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionDynamoDb(array $args = [])
  * @method \Aws\DynamoDbStreams\DynamoDbStreamsClient createDynamoDbStreams(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionDynamoDbStreams(array $args = [])
+ * @method \Aws\EBS\EBSClient createEBS(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionEBS(array $args = [])
  * @method \Aws\EC2InstanceConnect\EC2InstanceConnectClient createEC2InstanceConnect(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionEC2InstanceConnect(array $args = [])
  * @method \Aws\EKS\EKSClient createEKS(array $args = [])
@@ -234,6 +240,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionKinesisVideoArchivedMedia(array $args = [])
  * @method \Aws\KinesisVideoMedia\KinesisVideoMediaClient createKinesisVideoMedia(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionKinesisVideoMedia(array $args = [])
+ * @method \Aws\KinesisVideoSignalingChannels\KinesisVideoSignalingChannelsClient createKinesisVideoSignalingChannels(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionKinesisVideoSignalingChannels(array $args = [])
  * @method \Aws\Kms\KmsClient createKms(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionKms(array $args = [])
  * @method \Aws\LakeFormation\LakeFormationClient createLakeFormation(array $args = [])
@@ -435,7 +443,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.126.0';
+    const VERSION = '3.130.3';
 
     /** @var array Arguments for creating clients */
     private $args;

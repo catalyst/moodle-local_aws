@@ -1,5 +1,113 @@
 # CHANGELOG
 
+## 3.130.3 - 2020-01-02
+
+* `Aws\CostExplorer` - Documentation updates for GetReservationUtilization for the Cost Explorer API.
+* `Aws\ECR` - Adds waiters for ImageScanComplete and LifecyclePolicyPreviewComplete
+* `Aws\LexModelBuildingService` - Documentation updates for Amazon Lex.
+* `Aws\Lightsail` - This release adds support for Certificate Authority (CA) certificate identifier to managed databases in Amazon Lightsail.
+
+## 3.130.2 - 2019-12-23
+
+* `Aws\Detective` - Updated the documentation for Amazon Detective.
+* `Aws\FSx` - This release adds a new family of APIs (create-data-repository-task, describe-data-repository-task, and cancel-data-repository-task) that allow users to perform operations between their file system and its linked data repository.
+* `Aws\Health` - With this release, you can now centrally aggregate AWS Health events from all accounts in your AWS organization. Visit AWS Health documentation to learn more about enabling and using this feature: https://docs.aws.amazon.com/health/latest/ug/organizational-view-health.html. 
+
+## 3.130.1 - 2019-12-20
+
+* `Aws\DeviceFarm` - Introduced browser testing support through AWS Device Farm
+* `Aws\EC2` - This release introduces the ability to tag key pairs, placement groups, export tasks, import image tasks, import snapshot tasks and export image tasks. You can use tags to organize and identify your resources for cost allocation. 
+* `Aws\EKS` - Amazon EKS now supports restricting access to the API server public endpoint by applying CIDR blocks
+* `Aws\Pinpoint` - This release of the Amazon Pinpoint API introduces versioning support for message templates.
+* `Aws\RDS` - This release adds an operation that enables users to specify whether a database is restarted when its SSL/TLS certificate is rotated. Only customers who do not use SSL/TLS should use this operation.
+* `Aws\Redshift` - Documentation updates for Amazon Redshift RA3 node types.
+* `Aws\SSM` - This release updates the attachments support to include AttachmentReference source for Automation documents.
+* `Aws\SecurityHub` - Additional resource types are now fully supported in the AWS Security Finding Format (ASFF). These resources include AwsElbv2LoadBalancer, AwsKmsKey, AwsIamRole, AwsSqsQueue, AwsLambdaFunction, AwsSnsTopic, and AwsCloudFrontDistribution. Each of these resource types includes an accompanying resource details object with fields for security finding providers to populate. Updates were made to the AwsIamAccessKey resource details object to include information on principal ID and name. To learn more, visit our documentation on the ASFF.
+* `Aws\TranscribeService` - AWS Transcribe now supports vocabulary filtering that allows customers to input words to the service that they don't want to see in the output transcript.
+
+## 3.130.0 - 2019-12-19
+
+* `Aws\CodeStarconnections` - Public beta for Bitbucket Cloud support in AWS CodePipeline through integration with AWS CodeStar connections.
+* `Aws\Credentials` - Brings PHP SDK inline with Python's boto3, allowing setting instance metadata timeout and retries from environment variables
+* `Aws\DLM` - You can now copy snapshots across regions using Data Lifecycle Manager (DLM). You can enable policies which, along with create, can now also copy snapshots to one or more AWS region(s). Copies can be scheduled for up to three regions from a single policy and retention periods are set for each region separately. 
+* `Aws\EC2` - We are updating the supportedRootDevices field to supportedRootDeviceTypes for DescribeInstanceTypes API to ensure that the actual value is returned, correcting a previous error in the model.
+* `Aws\GameLift` - Amazon GameLift now supports ARNs for all key GameLift resources, tagging for GameLift resource authorization management, and updated documentation that articulates GameLift's resource authorization strategy.
+* `Aws\LexModelBuildingService` - Amazon Lex now supports conversation logs and slot obfuscation.
+* `Aws\PersonalizeRuntime` - Add context map to get-recommendations and get-personalized-ranking request objects to provide contextual metadata at inference time
+* `Aws\SSM` - This release allows customers to add tags to Automation execution, enabling them to sort and filter executions in different ways, such as by resource, purpose, owner, or environment.
+* `Aws\TranscribeService` - Amazon Transcribe supports job queuing for the StartTranscriptionJob API.
+
+## 3.129.3 - 2019-12-18
+
+* `Aws\Build\Docs` - Adds a hook for custom examples in API documentation generation.
+* `Aws\CloudFront` - Documentation updates for CloudFront
+* `Aws\EC2` - This release introduces the ability to tag Elastic Graphics accelerators. You can use tags to organize and identify your accelerators for cost allocation.
+* `Aws\OpsWorksCM` - AWS OpsWorks CM now supports tagging, and tag-based access control, of servers and backups.
+* `Aws\ResourceGroupsTaggingAPI` - Documentation updates for resourcegroupstaggingapi
+* `Aws\S3` - Updates Amazon S3 endpoints allowing you to configure your client to opt-in to using S3 with the us-east-1 regional endpoint, instead of global.
+
+## 3.129.2 - 2019-12-17
+
+* `Aws\EC2` - Documentation updates for Amazon EC2
+* `Aws\ECS` - Documentation updates for Amazon ECS.
+* `Aws\IoT` - Added a new Over-the-Air (OTA) Update feature that allows you to use different, or multiple, protocols to transfer an image from the AWS cloud to IoT devices.
+* `Aws\KinesisAnalyticsV2` - Kinesis Data Analytics service now supports running Java applications using Flink 1.8.
+* `Aws\MediaLive` - AWS Elemental MediaLive now supports HLS ID3 segment tagging, HLS redundant manifests for CDNs that support different publishing/viewing endpoints, fragmented MP4 (fMP4), and frame capture intervals specified in milliseconds.
+* `Aws\SSM` - Added support for Cloud Watch Output and Document Version to the Run Command tasks in Maintenance Windows.
+
+## 3.129.1 - 2019-12-16
+
+* `Aws\ComprehendMedical` - New Ontology linking APIs will provides medication concepts normalization and Diagnoses codes from input text. In this release we will provide two APIs - RxNorm and ICD10-CM. 
+* `Aws\EC2` - You can now configure your EC2 Fleet to preferentially use EC2 Capacity Reservations for launching On-Demand instances, enabling you to fully utilize the available (and unused) Capacity Reservations before launching On-Demand instances on net new capacity.
+* `Aws\MQ` - Amazon MQ now supports throughput-optimized message brokers, backed by Amazon EBS.
+
+## 3.129.0 - 2019-12-13
+
+* `Aws\Api\Parser` - Add support for parsing XML attributes for models using XML-based protocols.
+* `Aws\CodeBuild` - CodeBuild adds support for cross account
+* `Aws\Detective` - This is the initial release of Amazon Detective.
+* `Aws\SesV2` - Added the ability to use your own public-private key pair to configure DKIM authentication for a domain identity.
+
+## 3.128.4 - 2019-12-12
+
+* `Aws\AccessAnalyzer` - This release includes improvements and fixes bugs for the IAM Access Analyzer feature.
+
+## 3.128.3 - 2019-12-11
+
+* `Aws\EC2` - This release allows customers to attach multiple Elastic Inference Accelerators to a single EC2 instance. It adds support for a Count parameter for each Elastic Inference Accelerator type you specify on the RunInstances and LaunchTemplate APIs.
+
+## 3.128.2 - 2019-12-10
+
+* `Aws\S3Control` - Adds AccountId validation for S3Control.
+* `Aws\kendra` - 1. Adding DocumentTitleFieldName as an optional configuration for SharePoint. 2. updating s3 object pattern to support all s3 keys.
+
+## 3.128.1 - 2019-12-09
+
+* `Aws\KMS` - The Verify operation now returns KMSInvalidSignatureException on invalid signatures. The Sign and Verify operations now return KMSInvalidStateException when a request is made against a CMK pending deletion.
+* `Aws\Kafka` - AWS MSK has added support for Open Monitoring with Prometheus.
+* `Aws\QuickSight` - Documentation updates for QuickSight
+* `Aws\SSM` - Adds the SSM GetCalendarState API and ChangeCalendar SSM Document type. These features enable the forthcoming Systems Manager Change Calendar feature, which will allow you to schedule events during which actions should (or should not) be performed.
+* `Aws\Test` - Adds a test bootstrap patch for a PHPUnit class file that triggers deprecation warnings for PHP 7.4+. This is necessary because the SDK supports older versions of PHP and currently relies on older, now unsupported, versions of PHPUnit.
+
+## 3.128.0 - 2019-12-05
+
+* `Aws\ApiGatewayV2` - Amazon API Gateway now supports HTTP APIs (beta), enabling customers to quickly build high performance RESTful APIs that are up to 71% cheaper than REST APIs also available from API Gateway. HTTP APIs are optimized for building APIs that proxy to AWS Lambda functions or HTTP backends, making them ideal for serverless workloads. Using HTTP APIs, you can secure your APIs using OIDC and OAuth 2 out of box, quickly build web applications using a simple CORS experience, and get started immediately with automatic deployment and simple create workflows.
+* `Aws\KinesisVideo` - Introduces management of signaling channels for Kinesis Video Streams.
+* `Aws\KinesisVideoSignalingChannels` - Announcing support for WebRTC in Kinesis Video Streams, as fully managed capability. You can now use simple APIs to enable your connected devices, web, and mobile apps with real-time two-way media streaming capabilities.
+* `Aws\Test\S3` - Fixes stream reading issue in TransferTest with PHP 7.4.
+
+## 3.127.0 - 2019-12-04
+
+* `Aws\` - Fixes array offset null issue and test stream class for PHP 7.4.
+* `Aws\ApplicationAutoScaling` - This release supports auto scaling of provisioned concurrency for AWS Lambda.
+* `Aws\EBS` - This release introduces the EBS direct APIs for Snapshots: 1. ListSnapshotBlocks, which lists the block indexes and block tokens for blocks in an Amazon EBS snapshot. 2. ListChangedBlocks, which lists the block indexes and block tokens for blocks that are different between two snapshots of the same volume/snapshot lineage. 3. GetSnapshotBlock, which returns the data in a block of an Amazon EBS snapshot.
+* `Aws\Lambda` - - Added the ProvisionedConcurrency type and operations. Allocate provisioned concurrency to enable your function to scale up without fluctuations in latency. Use PutProvisionedConcurrencyConfig to configure provisioned concurrency on a version of a function, or on an alias.
+* `Aws\RDS` - This release adds support for the Amazon RDS Proxy
+* `Aws\Rekognition` - This SDK Release introduces APIs for Amazon Rekognition Custom Labels feature (CreateProjects, CreateProjectVersion,DescribeProjects, DescribeProjectVersions, StartProjectVersion, StopProjectVersion and DetectCustomLabels). Also new is AugmentedAI (Human In The Loop) Support for DetectModerationLabels in Amazon Rekognition.
+* `Aws\S3` - Adds support for using S3 Access Point ARNs in Bucket fields for S3 operations and helper classes.
+* `Aws\SFN` - This release of the AWS Step Functions SDK introduces support for Express Workflows.
+* `Aws\SageMaker` - You can now use SageMaker Autopilot for automatically training and tuning candidate models using a combination of various feature engineering, ML algorithms, and hyperparameters determined from the user's input data. SageMaker Automatic Model Tuning now supports tuning across multiple algorithms. With Amazon SageMaker Experiments users can create Experiments, ExperimentTrials, and ExperimentTrialComponents to track, organize, and evaluate their ML training jobs. With Amazon SageMaker Debugger, users can easily debug training jobs using a number of pre-built rules provided by Amazon SageMaker, or build custom rules. With Amazon SageMaker Processing, users can run on-demand, distributed, and fully managed jobs for data pre- or post- processing or model evaluation. With Amazon SageMaker Model Monitor, a user can create MonitoringSchedules to automatically monitor endpoints to detect data drift and other issues and get alerted on them. This release also includes the preview version of Amazon SageMaker Studio with Domains, UserProfiles, and Apps. This release also includes the preview version of Amazon Augmented AI to easily implement human review of machine learning predictions by creating FlowDefinitions, HumanTaskUis, and HumanLoops.
+
 ## 3.126.0 - 2019-12-03
 
 * `Aws\AugmentedAIRuntime` - This release adds support for Amazon Augmented AI, which makes it easy to build workflows for human review of machine learning predictions.

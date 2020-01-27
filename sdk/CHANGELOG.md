@@ -1,5 +1,106 @@
 # CHANGELOG
 
+## 3.133.6 - 2020-01-24
+
+* `Aws\DataSync` - AWS DataSync now supports FSx for Windows File Server Locations
+* `Aws\ECS` - This release provides support for tagging Amazon ECS task sets for services using external deployment controllers.
+* `Aws\EKS` - Adding new error codes for Nodegroups in EKS
+* `Aws\OpsWorksCM` - AWS OpsWorks for Chef Automate now supports in-place upgrade to Chef Automate 2. Eligible servers can be updated through the management console, CLI and APIs.
+* `Aws\WorkSpaces` - Documentation updates for WorkSpaces
+
+## 3.133.5 - 2020-01-23
+
+* `Aws\IAM` - This release enables the Identity and Access Management policy simulator to simulate permissions boundary policies.
+* `Aws\RDS` - This SDK release introduces APIs that automate the export of Amazon RDS snapshot data to Amazon S3. The new APIs include: StartExportTask, CancelExportTask, DescribeExportTasks. These APIs automate the extraction of data from an RDS snapshot and export it to an Amazon S3 bucket. The data is stored in a compressed, consistent, and query-able format. After the data is exported, you can query it directly using tools such as Amazon Athena or Redshift Spectrum. You can also consume the data as part of a data lake solution. If you archive the data in S3 Infrequent Access or Glacier, you can reduce long term data storage costs by applying data lifecycle policies.
+
+## 3.133.4 - 2020-01-21
+
+* `Aws\ApplicationDiscoveryService` - Documentation updates for the AWS Application Discovery Service.
+* `Aws\CodePipeline` - AWS CodePipeline enables an ability to stop pipeline executions.
+* `Aws\EC2` - Add an enum value to the result of DescribeByoipCidrs to support CIDRs that are not publicly advertisable.
+* `Aws\IoTEvents` - Documentation updates for iotcolumbo
+* `Aws\MarketplaceCommerceAnalytics` - Remove 4 deprecated data sets, change some data sets available dates to 2017-09-15
+
+## 3.133.3 - 2020-01-20
+
+* `Aws\AlexaForBusiness` - Add support for CreatedTime and ConnectionStatusUpdatedTime in response of SearchDevices API.
+* `Aws\ApplicationInsights` - This release adds support for a list API to retrieve the configuration events logged during periodic updates to an application by Amazon CloudWatch Application Insights. 
+* `Aws\CloudWatch` - Updating DescribeAnomalyDetectors API to return AnomalyDetector Status value in response.
+* `Aws\EC2` - This release provides support for a preview of bringing your own IPv6 addresses (BYOIP for IPv6) for use in AWS.
+* `Aws\KMS` - The ConnectCustomKeyStore operation now provides new error codes (USER_LOGGED_IN and USER_NOT_FOUND) for customers to better troubleshoot if their connect custom key store operation fails. Password length validation during CreateCustomKeyStore now also occurs on the client side. 
+* `Aws\Lambda` - Added reason codes to StateReasonCode (InvalidSubnet, InvalidSecurityGroup) and LastUpdateStatusReasonCode (SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup) for functions that connect to a VPC.
+
+## 3.133.2 - 2020-01-17
+
+* `Aws\Batch` - This release ensures INACTIVE job definitions are permanently deleted after 180 days.
+* `Aws\CloudHSMV2` - This release introduces resource-level and tag-based access control for AWS CloudHSM resources. You can now tag CloudHSM backups, tag CloudHSM clusters on creation, and tag a backup as you copy it to another region.
+* `Aws\ECS` - This release provides a public preview for specifying Amazon EFS file systems as volumes in your Amazon ECS task definitions.
+* `Aws\MediaConvert` - AWS Elemental MediaConvert SDK has added support for MP3 audio only outputs.
+* `Aws\Neptune` - This release includes Deletion Protection for Amazon Neptune databases.
+* `Aws\Redshift` - Documentation updates for redshift
+
+## 3.133.1 - 2020-01-16
+
+* `Aws\DirectoryService` - To reduce the number of errors our customers are facing, we have modified the requirements of input parameters for two of Directory Service APIs.
+* `Aws\EC2` - Client VPN now supports Port Configuration for VPN Endpoints, allowing usage of either port 443 or port 1194.
+* `Aws\SageMaker` - This release adds two new APIs (UpdateWorkforce and DescribeWorkforce) to SageMaker Ground Truth service for workforce IP whitelisting.
+
+## 3.133.0 - 2020-01-15
+
+* `Aws\` - Added retry for EC2ThrottledException
+* `Aws\EC2` - General Update to EC2 Docs and SDKs
+* `Aws\Organizations` - Updated description for PolicyID parameter and ConstraintViolationException.
+* `Aws\SSM` - Document updates for Patch Manager 'NoReboot' feature.
+* `Aws\SecurityHub` - Add support for DescribeStandardsControls and UpdateStandardsControl. These new Security Hub API operations are used to track and manage whether a compliance standards control is enabled.
+* `Aws\Test\Integ` - Modify S3 integration context event hooks, as well as retry logic to take into account S3 eventual consistency characteristics.
+
+## 3.132.5 - 2020-01-14
+
+* `Aws\EC2` - This release adds support for partition placement groups and instance metadata option in Launch Templates
+
+## 3.132.4 - 2020-01-13
+
+* `Aws\Backup` - Cross-region backup is a new AWS Backup feature that allows enterprises to copy backups across multiple AWS services to different regions. 
+* `Aws\EC2` - Documentation updates for the StopInstances API. You can now stop and start an Amazon EBS-backed Spot Instance at will, instead of relying on the Stop interruption behavior to stop your Spot Instances when interrupted.
+* `Aws\EFS` - This release adds support for managing EFS file system policies and EFS Access Points.
+
+## 3.132.3 - 2020-01-10
+
+* `Aws\Chime` - Add shared profile support to new and existing users
+* `Aws\CloudFront` - CloudFront Signer now accepts PEM formatted private keys stored as variables in addition to the path to a key file.
+* `Aws\EC2` - This release introduces the ability to tag egress only internet gateways, local gateways, local gateway route tables, local gateway virtual interfaces, local gateway virtual interface groups, local gateway route table VPC association and local gateway route table virtual interface group association. You can use tags to organize and identify your resources for cost allocation. 
+* `Aws\RDS` - This release adds an operation that enables users to override the system-default SSL/TLS certificate for new Amazon RDS DB instances temporarily, or remove the customer override.
+* `Aws\SageMaker` - SageMaker ListTrialComponents API filter by TrialName and ExperimentName.
+* `Aws\Transfer` - This release introduces a new endpoint type that allows you to attach Elastic IP addresses from your AWS account with your server's endpoint directly and whitelist access to your server by client's internet IP address(es) using VPC Security Groups.
+* `Aws\WorkSpaces` - Added the migrate feature to Amazon WorkSpaces.
+
+## 3.132.2 - 2020-01-09
+
+* `Aws\CloudWatchLogs` - Documentation updates for logs
+* `Aws\STS` - Documentation updates for sts
+
+## 3.132.1 - 2020-01-08
+
+* `Aws\ApiGatewayV2` - Adds an alias 'GetApiResource' for the 'GetApi' operation to avoid a naming conflict with the generic AwsClient 'GetApi' method.
+* `Aws\CostExplorer` - Documentation updates for CreateCostCategoryDefinition and UpdateCostCategoryDefinition API
+* `Aws\FMS` - AWS Firewall Manager now supports tagging, and tag-based access control, of policies.
+* `Aws\Translate` - This release adds a new family of APIs for asynchronous batch translation service that provides option to translate large collection of text or HTML documents stored in Amazon S3 folder. This service accepts a batch of up to 5 GB in size per API call with each document not exceeding 1 MB size and the number of documents not exceeding 1 million per batch. See documentation for more information. 
+
+## 3.132.0 - 2020-01-07
+
+* `Aws\` - Adds support for the 'AWS_CONFIG_FILE' environment variable to set the default config file location. This is implemented for all configuration provider classes extending AbstractConfigurationProvider.
+* `Aws\CodeBuild` - Add encryption key override to StartBuild API in AWS CodeBuild.
+* `Aws\MigrationHub` - ListApplicationStates API provides a list of all application migration states
+* `Aws\XRay` - Documentation updates for xray
+
+## 3.131.0 - 2020-01-06
+
+* `Aws\` - Add support for Guzzle7.
+* `Aws\CloudFront` - Modifies CloudFront Signer to accept a passphrase for the key file. Modifies Signer test to use a fixed test key file.
+* `Aws\Comprehend` - Amazon Comprehend now supports Multilabel document classification
+* `Aws\EC2` - This release supports service providers configuring a private DNS name for services other than AWS services and services available in the AWS marketplace. This feature allows consumers to access the service using an existing DNS name without making changes to their applications.
+* `Aws\MediaPackage` - You can now restrict direct access to AWS Elemental MediaPackage by securing requests for live content using CDN authorization. With CDN authorization, content requests require a specific HTTP header and authorization code.
+
 ## 3.130.3 - 2020-01-02
 
 * `Aws\CostExplorer` - Documentation updates for GetReservationUtilization for the Cost Explorer API.

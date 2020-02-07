@@ -1,5 +1,34 @@
 # CHANGELOG
 
+## 3.133.9 - 2020-02-06
+
+* `Aws\AppSync` - AWS AppSync now supports X-Ray
+* `Aws\CodeBuild` - AWS CodeBuild adds support for Amazon Elastic File Systems
+* `Aws\EBS` - Documentation updates for EBS direct APIs.
+* `Aws\EC2` - This release adds platform details and billing info to the DescribeImages API.
+* `Aws\ECR` - This release contains updated text for the GetAuthorizationToken API.
+* `Aws\LexModelBuildingService` - Amazon Lex now supports AMAZON.AlphaNumeric with regular expressions.
+
+## 3.133.8 - 2020-02-05
+
+* `Aws\DLM` - Updated the maximum number of tags that can be added to a snapshot using DLM to 45.
+* `Aws\EC2` - This release provides support for tagging when you create a VPC endpoint, or VPC endpoint service.
+* `Aws\ForecastQueryService` - Documentation updates for Amazon Forecast.
+* `Aws\GroundStation` - Adds dataflowEndpointRegion property to DataflowEndpointConfig. The dateCreated, lastUpdated, and tags properties on GetSatellite have been deprecated.
+* `Aws\MediaConvert` - AWS Elemental MediaConvert SDK has added support for fine-tuned QVBR quality level.
+* `Aws\ResourceGroupsTaggingAPI` - Documentation-only update that adds services to the list of supported services.
+* `Aws\SecurityHub` - Additional resource types are now supported in the AWS Security Finding Format (ASFF). The following new resource types are added, each having an accompanying resource details object with fields for security finding providers to populate: AwsCodeBuildProject, AwsEc2NetworkInterface, AwsEc2SecurityGroup, AwsElasticsearchDomain, AwsLambdaLayerVersion, AwsRdsDbInstance, and AwsWafWebAcl. The following resource types are added without an accompanying details object: AutoscalingAutoscalingGroup, AwsDynamoDbTable, AwsEc2Eip, AwsEc2Snapshot, AwsEc2Volume, AwsRdsDbSnapshot, AwsRedshiftCluster, and AwsS3Object. The number of allowed resources per finding is increased from 10 to 32. A new field is added in the Compliance object, RelatedRequirements. To learn more, visit our documentation on the ASFF.
+
+## 3.133.7 - 2020-02-04
+
+* `Aws\CloudFront` - Documentation updates for CloudFront
+* `Aws\EC2` - Amazon VPC Flow Logs adds support for 1-minute aggregation intervals.
+* `Aws\IoT` - Updated ThrottlingException documentation to report that the error code is 400, and not 429, to reflect actual system behaviour.
+* `Aws\Kafka` - This release enables AWS MSK customers to list Apache Kafka versions that are supported on AWS MSK clusters. Also includes changes to expose additional details of a cluster's state in DescribeCluster and ListClusters APIs.
+* `Aws\SSM` - This feature ensures that an instance is patched up to the available patches on a particular date. It can be enabled by selecting the 'ApproveUntilDate' option as the auto-approval rule while creating the patch baseline. ApproveUntilDate - The cutoff date for auto approval of released patches. Any patches released on or before this date will be installed automatically.
+* `Aws\StorageGateway` - Adding KVM as a support hypervisor
+* `Aws\WorkMail` - This release adds support for tagging Amazon WorkMail organizations.
+
 ## 3.133.6 - 2020-01-24
 
 * `Aws\DataSync` - AWS DataSync now supports FSx for Windows File Server Locations

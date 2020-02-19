@@ -1,5 +1,60 @@
 # CHANGELOG
 
+## 3.133.17 - 2020-02-18
+
+* `Aws\AutoScaling` - Amazon EC2 Auto Scaling now supports the ability to enable/disable target tracking, step scaling, and simple scaling policies.
+* `Aws\Chime` - Added AudioFallbackUrl to support Chime SDK client.
+* `Aws\RDS` - This release supports Microsoft Active Directory authentication for Amazon Aurora.
+
+## 3.133.16 - 2020-02-17
+
+* `Aws\Cloud9` - AWS Cloud9 now supports the ability to tag Cloud9 development environments. 
+* `Aws\DynamoDB` - Amazon DynamoDB enables you to restore your DynamoDB backup or table data across AWS Regions such that the restored table is created in a different AWS Region from where the source table or backup resides. You can do cross-region restores between AWS commercial Regions, AWS China Regions, and AWS GovCloud (US) Regions. 
+* `Aws\EC2` - Documentation updates for EC2
+* `Aws\Rekognition` - This update adds the ability to detect text in videos and adds filters to image and video text detection.
+
+## 3.133.15 - 2020-02-14
+
+* `Aws\Build\Docs` - Adds customization in docs redirect map builder to avoid service name conflict.
+* `Aws\EC2` - You can now enable Multi-Attach on Provisioned IOPS io1 volumes through the create-volume API.
+* `Aws\MediaTailor` - AWS Elemental MediaTailor SDK now allows configuration of Personalization Threshold for HLS and DASH streams.
+* `Aws\SecurityHub` - Security Hub has released a new DescribeStandards API action. This API action allows a customer to list all of the standards available in an account. For each standard, the list provides the customer with the standard name, description, and ARN. Customers can use the ARN as an input to the BatchEnableStandards API action. To learn more, visit our API documentation.
+* `Aws\Shield` - This release adds support for associating Amazon Route 53 health checks to AWS Shield Advanced protected resources.
+* `Aws\Test\S3` - Adds a test to verify S3 CopyObject functionality with a bucket ARN for the CopySource.
+
+## 3.133.14 - 2020-02-13
+
+* `Aws\MediaPackageVod` - Adds support for DASH with multiple media presentation description periods triggered by presence of SCTE-35 ad markers in the manifest.Also adds optional configuration for DASH SegmentTemplateFormat to refer to segments by Number with Duration, Number with Timeline or Time with Timeline and compact the manifest by combining duplicate SegmentTemplate tags.
+
+## 3.133.13 - 2020-02-12
+
+* `Aws\Chime` - Documentation updates for Amazon Chime
+* `Aws\DirectoryService` - Release to add the ExpirationDateTime as an output to ListCertificates so as to ease customers to look into their certificate lifetime and make timely decisions about renewing them.
+* `Aws\EC2` - This release adds support for tagging public IPv4 pools.
+* `Aws\ElasticsearchService` - Amazon Elasticsearch Service now offers fine-grained access control, which adds multiple capabilities to give tighter control over data. New features include the ability to use roles to define granular permissions for indices, documents, or fields and to extend Kibana with read-only views and secure multi-tenant support.
+* `Aws\Glue` - Adding ability to add arguments that cannot be overridden to AWS Glue jobs
+* `Aws\Neptune` - This launch enables Neptune start-db-cluster and stop-db-cluster. Stopping and starting Amazon Neptune clusters helps you manage costs for development and test environments. You can temporarily stop all the DB instances in your cluster, instead of setting up and tearing down all the DB instances each time that you use the cluster.
+* `Aws\S3` - Fixing incorrect detection of host-style endpoint pattern while using IP address
+* `Aws\S3\Transfer` - Fix handling of 'debug' values different than true and valid resources.
+* `Aws\WorkMail` - This release adds support for access control rules management in Amazon WorkMail.
+
+## 3.133.12 - 2020-02-11
+
+* `Aws\CloudFormation` - This release of AWS CloudFormation StackSets allows you to centrally manage deployments to all the accounts in your organization or specific organizational units (OUs) in AWS Organizations. You will also be able to enable automatic deployments to any new accounts added to your organization or OUs. The permissions needed to deploy across accounts will automatically be taken care of by the StackSets service.
+* `Aws\CognitoIdentityProvider` - Features:This release adds a new setting for a user pool to allow if customer wants their user signup/signin with case insensitive username. The current default setting is case sensitive, and for our next release we will change it to case insensitive.
+* `Aws\EC2` - Amazon EC2 Now Supports Tagging Spot Fleet.
+
+## 3.133.11 - 2020-02-10
+
+* `Aws\DocDB` - Added clarifying information that Amazon DocumentDB shares operational technology with Amazon RDS and Amazon Neptune.
+* `Aws\KMS` - The ConnectCustomKeyStore API now provides a new error code (SUBNET_NOT_FOUND) for customers to better troubleshoot if their "connect-custom-key-store" operation fails.
+
+## 3.133.10 - 2020-02-07
+
+* `Aws\RDS` - Documentation updates for RDS: when restoring a DB cluster from a snapshot, must create DB instances
+* `Aws\RoboMaker` - This release adds support for simulation job batches
+* `Aws\imagebuilder` - This version of the SDK includes bug fixes and documentation updates.
+
 ## 3.133.9 - 2020-02-06
 
 * `Aws\AppSync` - AWS AppSync now supports X-Ray

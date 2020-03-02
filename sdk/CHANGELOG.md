@@ -1,5 +1,67 @@
 # CHANGELOG
 
+## 3.133.26 - 2020-02-29
+
+* `Aws\ConfigService` - Correcting list of supported resource types.
+
+## 3.133.25 - 2020-02-28
+
+* `Aws\AccessAnalyzer` - This release includes improvements and fixes bugs for the IAM Access Analyzer feature.
+* `Aws\AppMesh` - App Mesh now supports Transport Layer Security (TLS) between Virtual Nodes in a Mesh. Customers can use managed certificates from an AWS Certificate Manager Private Certificate Authority or bring their own certificates from the local file system to encrypt traffic between their workloads. See https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual-node-tls.html for details.
+* `Aws\AugmentedAIRuntime` - This release updates Amazon Augmented AI ListHumanLoops API, DescribeHumanLoop response, StartHumanLoop response and type names of SDK fields. 
+* `Aws\CodeGuruProfiler` - Documentation updates for Amazon CodeGuru Profiler
+* `Aws\ConfigService` - Accepts a structured query language (SQL) SELECT command and an aggregator name, performs the corresponding search on resources aggregated by the aggregator, and returns resource configurations matching the properties.
+* `Aws\ElasticLoadBalancingv2` - Added a target group attribute to support sticky sessions for Network Load Balancers.
+* `Aws\Glue` - AWS Glue adds resource tagging support for Machine Learning Transforms and adds a new API, ListMLTransforms to support tag filtering. With this feature, customers can use tags in AWS Glue to organize and control access to Machine Learning Transforms. 
+* `Aws\QuickSight` - Added SearchDashboards API that allows listing of dashboards that a specific user has access to.
+* `Aws\WorkDocs` - Documentation updates for workdocs
+
+## 3.133.24 - 2020-02-27
+
+* `Aws\GlobalAccelerator` - This release adds support for adding tags to accelerators and bringing your own IP address to AWS Global Accelerator (BYOIP).
+* `Aws\Lightsail` - Adds support to create notification contacts in Amazon Lightsail, and to create instance, database, and load balancer metric alarms that notify you based on the value of a metric relative to a threshold that you specify.
+
+## 3.133.23 - 2020-02-26
+
+* `Aws\EC2` - This release changes the RunInstances CLI and SDK's so that if you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.
+* `Aws\SageMaker` - SageMaker UpdateEndpoint API now supports retained variant properties, e.g., instance count, variant weight. SageMaker ListTrials API filter by TrialComponentName. Make ExperimentConfig name length limits consistent with CreateExperiment, CreateTrial, and CreateTrialComponent APIs.
+* `Aws\SecurityHub` - Security Hub has added to the DescribeProducts API operation a new response field called IntegrationTypes. The IntegrationTypes field lists the types of actions that a product performs relative to Security Hub such as send findings to Security Hub and receive findings from Security Hub.
+* `Aws\TranscribeService` - Amazon Transcribe's Automatic Content Redaction feature enables you to automatically redact sensitive personally identifiable information (PII) from transcription results. It replaces each instance of an identified PII utterance with a [PII] tag in the transcript.
+
+## 3.133.22 - 2020-02-25
+
+* `Aws\Kafka` - Amazon MSK has added support for Broker Log delivery to CloudWatch, S3, and Firehose.
+* `Aws\Outposts` - This release adds DeleteSite and DeleteOutpost. 
+* `Aws\SFN` - This release adds support for CloudWatch Logs for Standard Workflows.
+* `Aws\SecretsManager` - This release increases the maximum allowed size of SecretString or SecretBinary from 10KB to 64KB in the CreateSecret, UpdateSecret, PutSecretValue and GetSecretValue APIs.
+
+## 3.133.21 - 2020-02-24
+
+* `Aws\CloudWatchEvents` - This release allows you to create and manage tags for event buses.
+* `Aws\DocDB` - Documentation updates for docdb
+* `Aws\EventBridge` - This release allows you to create and manage tags for event buses.
+* `Aws\FSx` - Announcing persistent file systems for Amazon FSx for Lustre that are ideal for longer-term storage and workloads, and a new generation of scratch file systems that offer higher burst throughput for spiky workloads.
+* `Aws\IoTEvents` - Documentation updates for iotcolumbo
+* `Aws\Snowball` - AWS Snowball adds a field for entering your GSTIN when creating AWS Snowball jobs in the Asia Pacific (Mumbai) region. 
+
+## 3.133.20 - 2020-02-21
+
+* `Aws\Redshift` - Extend elastic resize to support resizing clusters to different instance types.
+* `Aws\WAFV2` - Documentation updates for AWS WAF (wafv2) to correct the guidance for associating a web ACL to a CloudFront distribution.
+* `Aws\imagebuilder` - This release of EC2 Image Builder increases the maximum policy document size for Image Builder resource-based policy APIs.
+
+## 3.133.19 - 2020-02-20
+
+* `Aws\AppConfig` - This release adds exponential growth type support for deployment strategies.
+* `Aws\Pinpoint` - As of this release of the Amazon Pinpoint API, the Title property is optional for the CampaignEmailMessage object. 
+* `Aws\SavingsPlans` - Added support for AWS Lambda in Compute Savings Plans
+
+## 3.133.18 - 2020-02-19
+
+* `Aws\AutoScaling` - Doc update for EC2 Auto Scaling: Add Enabled parameter for PutScalingPolicy
+* `Aws\Lambda` - AWS Lambda now supports Ruby 2.7
+* `Aws\ServiceCatalog` - "ListPortfolioAccess" API now has a new optional parameter "OrganizationParentId". When it is provided and if the portfolio with the "PortfolioId" given was shared with an organization or organizational unit with "OrganizationParentId", all accounts in the organization sub-tree under parent which inherit an organizational portfolio share will be listed, rather than all accounts with external shares. To accommodate long lists returned from the new option, the API now supports pagination.
+
 ## 3.133.17 - 2020-02-18
 
 * `Aws\AutoScaling` - Amazon EC2 Auto Scaling now supports the ability to enable/disable target tracking, step scaling, and simple scaling policies.

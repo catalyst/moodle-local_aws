@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 3.133.32 - 2020-03-09
+
+* `Aws\DatabaseMigrationService` - Added new settings for Kinesis target to include detailed transaction info; to capture table DDL details; to use single-line unformatted json, which can be directly queried by AWS Athena if data is streamed into S3 through AWS Kinesis Firehose. Added CdcInsertsAndUpdates in S3 target settings to allow capture ongoing insertions and updates only.
+* `Aws\EC2` - Amazon Virtual Private Cloud (VPC) NAT Gateway adds support for tagging on resource creation.
+* `Aws\MediaLive` - AWS Elemental MediaLive now supports the ability to configure the Preferred Channel Pipeline for channels contributing to a Multiplex.
+
+## 3.133.31 - 2020-03-06
+
+* `Aws\AppMesh` - App Mesh now supports sharing a Mesh with other AWS accounts. Customers can use AWS Resource Access Manager to share their Mesh with other accounts in their organization to connection applications within a single service mesh. See https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html for details.
+* `Aws\EC2` - This release provides customers with a self-service option to enable Local Zones.
+* `Aws\GuardDuty` - Amazon GuardDuty findings now include the OutpostArn if the finding is generated for an AWS Outposts EC2 host.
+* `Aws\RoboMaker` - Added support for streaming a GUI from robot and simulation applications
+* `Aws\signer` - This release enables signing image format override in PutSigningProfile requests, adding two more enum fields, JSONEmbedded and JSONDetached. This release also extends the length limit of SigningProfile name from 20 to 64.
+
+## 3.133.30 - 2020-03-05
+
+* `Aws\EC2` - You can now create AWS Client VPN Endpoints with a specified VPC and Security Group. Additionally, you can modify these attributes when modifying the endpoint. 
+* `Aws\EKS` - Amazon EKS now supports adding a KMS key to your cluster for envelope encryption of Kubernetes secrets.
+* `Aws\GuardDuty` - Add a new finding field for EC2 findings indicating the instance's local IP address involved in the threat.
+* `Aws\OpsWorksCM` - Updated the Tag regex pattern to align with AWS tagging APIs.
+
+## 3.133.29 - 2020-03-04
+
+* `Aws\Build` - Add custom retry handling for github release artifact uploads to handle github API quirks.
+* `Aws\Pinpoint` - This release of the Amazon Pinpoint API introduces support for integrating recommender models with email, push notification, and SMS message templates. You can now use these types of templates to connect to recommender models and add personalized recommendations to messages that you send from campaigns and journeys.
+
+## 3.133.28 - 2020-03-03
+
+* `Aws\EC2` - Amazon VPC Flow Logs adds support for tags and tagging on resource creation.
+
+## 3.133.27 - 2020-03-02
+
+* `Aws\CloudWatch` - Introducing Amazon CloudWatch Composite Alarms
+* `Aws\ComprehendMedical` - New Time Expression feature, part of DetectEntitiesV2 API will provide temporal relations to existing NERe entities such as Medication, Test, Treatment, Procedure and Medical conditions. 
+
 ## 3.133.26 - 2020-02-29
 
 * `Aws\ConfigService` - Correcting list of supported resource types.

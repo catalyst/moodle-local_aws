@@ -22,7 +22,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
 namespace local_aws;
 
 defined('MOODLE_INTERNAL') || die();
@@ -30,44 +29,49 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot . '/lib/adminlib.php');
 
 /**
- * Admin setting for AWS regions.
+ * Admin setting for a list of AWS regions.
  *
  * @copyright  2020 Catalyst IT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class admin_settings_aws_regions_select extends \admin_setting_configselect {
-    /**
-     * Constructor.
-     *
-     * @param string $name Setting  name name.
-     * @param string $visiblename localised
-     * @param string $description long localised info
-     * @param string|int $defaultsetting
-     */
-    public function __construct($name, $visiblename, $description, $defaultsetting) {
-        parent::__construct($name, $visiblename, $description, $defaultsetting, null);
-    }
+class admin_settings_aws_region extends \admin_setting_configtext {
 
     /**
-     * Load the available choices for the select box.
+     * Return part of form with setting.
      *
-     * @return bool
+     * @param mixed $data array or string depending on setting
+     * @param string $query
+     * @return string
      */
-    public function load_choices() {
-        global $CFG;
+    public function output_html($data, $query='') {
+        global $CFG, $OUTPUT;
 
-        if (is_array($this->choices)) {
-            return true;
-        }
+        $default = $this->get_defaultsetting();
+
+        $options = [];
 
         $all = require($CFG->dirroot . '/local/aws/sdk/Aws/data/endpoints.json.php');
         $ends = $all['partitions'][0]['regions'];
         if ($ends) {
             foreach ($ends as $key => $value) {
-                $this->choices[$key] = $key . " - " . $value['description'];
+                $options[] = [
+                    'value' => $key,
+                    'label' => $value['description'],
+                ];
             }
         }
 
-        return true;
+        $context = (object) [
+            'size' => $this->size,
+            'id' => $this->get_id(),
+            'name' => $this->get_full_name(),
+            'value' => $data,
+            'forceltr' => $this->get_force_ltr(),
+            'options' => $options,
+        ];
+
+        $element = $OUTPUT->render_from_template('local_aws/setting_list', $context);
+
+        return format_admin_setting($this, $this->visiblename, $element, $this->description, true, '', $default, $query);
     }
 }

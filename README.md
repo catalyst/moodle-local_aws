@@ -16,14 +16,14 @@ $plugin->dependencies = array(
 );
 ```
 
-Also you can use AWS regions select in your plugin admin settings like:
+Also you can use AWS region admin setting in your plugin like:
 
 ```php
-use local_aws\admin_settings_aws_regions_select;
+use local_aws\admin_settings_aws_region;
 
 ...
 
-$settings->add(new admin_settings_aws_regions_select('my_plugin/s3_region',
+$settings->add(new admin_settings_aws_region('my_plugin/s3_region',
     new \lang_string('settings:aws:region', 'my_plugin'),
     new \lang_string('settings:aws:region_help', 'my_plugin'), ''));
 

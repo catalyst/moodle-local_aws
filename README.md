@@ -16,6 +16,19 @@ $plugin->dependencies = array(
 );
 ```
 
+Also you can use AWS regions select in your plugin admin settings like:
+
+```php
+use local_aws\admin_settings_aws_regions_select;
+
+...
+
+$settings->add(new admin_settings_aws_regions_select('my_plugin/s3_region',
+    new \lang_string('settings:aws:region', 'my_plugin'),
+    new \lang_string('settings:aws:region_help', 'my_plugin'), ''));
+
+```
+ 
 ## Why does this exist? ##
 
 There is a growing collection of various moodle plugins that require these AWS libraries in order to work.

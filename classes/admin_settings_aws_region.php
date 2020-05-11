@@ -56,7 +56,7 @@ class admin_settings_aws_region extends \admin_setting_configtext {
             foreach ($ends as $key => $value) {
                 $options[] = [
                     'value' => $key,
-                    'label' => $value['description'],
+                    'label' => $key . ' - ' . $value['description'],
                 ];
             }
         }

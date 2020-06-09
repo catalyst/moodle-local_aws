@@ -17,6 +17,7 @@
 /**
  * Admin setting for AWS regions.
  *
+ * @package    local_aws
  * @author     Dmitrii Metelkin <dmitriim@catalyst-au.net>
  * @copyright  2020 Catalyst IT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -31,6 +32,7 @@ require_once($CFG->dirroot . '/lib/adminlib.php');
 /**
  * Admin setting for a list of AWS regions.
  *
+ * @package    local_aws
  * @copyright  2020 Catalyst IT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

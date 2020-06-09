@@ -46,7 +46,7 @@ class admin_settings_aws_region extends \admin_setting_configtext {
      * @return string
      */
     public function output_html($data, $query='') {
-        global $CFG, $OUTPUT;
+        global $CFG;
 
         $default = $this->get_defaultsetting();
 
@@ -63,16 +63,24 @@ class admin_settings_aws_region extends \admin_setting_configtext {
             }
         }
 
-        $context = (object) [
-            'size' => $this->size,
-            'id' => $this->get_id(),
+        $inputparams = array(
+            'type' => 'text',
+            'list' => $this->get_full_name(),
             'name' => $this->get_full_name(),
             'value' => $data,
-            'forceltr' => $this->get_force_ltr(),
-            'options' => $options,
-        ];
+            'size' => $this->size,
+            'id' => $this->get_id(),
+            'class' => 'form-control text-ltr',
+        );
 
-        $element = $OUTPUT->render_from_template('local_aws/setting_list', $context);
+        $element = \html_writer::start_tag('div', array('class' => 'form-text defaultsnext'));
+        $element .= \html_writer::empty_tag('input', $inputparams);
+        $element .= \html_writer::start_tag('datalist', array('id' => $this->get_full_name()));
+        foreach ($options as $option) {
+            $element .= \html_writer::tag('option', $option['label'], array('value' => $option['value']));
+        }
+        $element .= \html_writer::end_tag('datalist');
+        $element .= \html_writer::end_tag('div');
 
         return format_admin_setting($this, $this->visiblename, $element, $this->description, true, '', $default, $query);
     }

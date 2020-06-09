@@ -1,3 +1,7 @@
+<a href="https://travis-ci.org/catalyst/moodle-local_aws">
+<img src="https://travis-ci.org/catalyst/moodle-local_aws.svg?branch=master">
+</a>
+
 # AWS SDK - Moodle Plugin
 
 A moodle plugin containing Amazon's SDK for PHP.

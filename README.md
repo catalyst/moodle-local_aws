@@ -41,6 +41,8 @@ are quite large, but also because it can cause issues with library namespaces an
 
 Plugins that depend on this library are:
 
+https://github.com/catalyst/moodle-local_smartmedia
+
 https://github.com/catalyst/moodle-search_elastic
 
 https://github.com/catalyst/moodle-tool_s3logs

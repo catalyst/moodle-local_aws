@@ -47,11 +47,11 @@ class admin_settings_aws_region_testcase extends \advanced_testcase {
         $setting = new admin_settings_aws_region('test_aws_region',
             'Test visible name', 'Test description', 'Test default setting');
         $html = $setting->output_html('');
-        $this->assertContains('Test visible name', $html);
-        $this->assertContains('Test description', $html);
-        $this->assertContains('Default: Test default setting', $html);
-        $this->assertContains('<input type="text" list="s__test_aws_region" name="s__test_aws_region" value=""', $html);
-        $this->assertContains('<datalist id="s__test_aws_region">', $html);
-        $this->assertContains('<option value="', $html);
+        $this->assertTrue(strpos($html, 'Test visible name') !== false);
+        $this->assertTrue(strpos($html, 'Test description') !== false);
+        $this->assertTrue(strpos($html, 'Default: Test default setting') !== false);
+        $this->assertTrue(strpos($html, '<input type="text" list="s__test_aws_region" name="s__test_aws_region" value=""') !== false);
+        $this->assertTrue(strpos($html, '<datalist id="s__test_aws_region">') !== false);
+        $this->assertTrue(strpos($html, '<option value="') !== false);
     }
 }

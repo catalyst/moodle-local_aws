@@ -177,12 +177,12 @@ class StreamWrapper
         // Attempt to guess the ContentType of the upload based on the
         // file extension of the key
         if (!isset($params['ContentType']) &&
-            ($type = Psr7\mimetype_from_filename($params['Key']))
+            ($type = Psr7\MimeType::fromFilename($params['Key']))
         ) {
             $params['ContentType'] = $type;
         }
 
-        $this->clearCacheKey("s3://{$params['Bucket']}/{$params['Key']}");
+        $this->clearCacheKey("{$this->protocol}://{$params['Bucket']}/{$params['Key']}");
         return $this->boolCall(function () use ($params) {
             return (bool) $this->getClient()->putObject($params);
         });

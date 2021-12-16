@@ -25,8 +25,6 @@
 
 namespace local_aws\local;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * This class contains functions that help plugins to interact with the AWS SDK.
  *

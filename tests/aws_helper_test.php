@@ -25,8 +25,6 @@
 
 namespace local_aws\tests;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Testcase for the AWS helper.
  *

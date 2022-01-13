@@ -41,6 +41,8 @@ Plugins that depend on this library are:
 
 https://github.com/catalyst/moodle-local_smartmedia
 
+https://github.com/catalyst/moodle-logstore_standardqueued
+
 https://github.com/catalyst/moodle-search_elastic
 
 https://github.com/catalyst/moodle-tool_s3logs
@@ -48,9 +50,12 @@ https://github.com/catalyst/moodle-tool_s3logs
 https://github.com/catalyst/moodle-tool_objectfs
 
 
-## Supported Moodle Versions
+## Branches
 
-This plugin requires Moodle 2.6+
+| Moodle version    | Branch           |
+| ----------------- | ---------------- |
+| Moodle 3.3+       | master           |
+
 
 ## Installation
 

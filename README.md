@@ -1,6 +1,4 @@
-<a href="https://travis-ci.org/catalyst/moodle-local_aws">
-<img src="https://travis-ci.org/catalyst/moodle-local_aws.svg?branch=master">
-</a>
+[![Build Status](https://github.com/catalyst/moodle-local_aws/actions/workflows/ci.yml/badge.svg)](https://github.com/catalyst/moodle-local_aws/actions)
 
 # AWS SDK - Moodle Plugin
 

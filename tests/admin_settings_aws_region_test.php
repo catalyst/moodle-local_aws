@@ -25,8 +25,6 @@
 
 namespace local_aws\tests;
 
-defined('MOODLE_INTERNAL') || die();
-
 use local_aws\admin_settings_aws_region;
 
 /**

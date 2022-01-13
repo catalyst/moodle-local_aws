@@ -3,6 +3,33 @@
 # AWS SDK - Moodle Plugin
 
 A moodle plugin containing Amazon's SDK for PHP.
+ 
+## Why does this exist? ##
+
+There is a growing collection of various moodle plugins that require these AWS libraries in order to work.
+We don't want to have multiple copies of these libraries bundled into each plugin, firstly because they
+are quite large, but also because it can cause issues with library namespaces and php auto loading.
+
+Plugins that depend on this library are:
+
+https://github.com/catalyst/moodle-local_smartmedia
+
+https://github.com/catalyst/moodle-logstore_standardqueued
+
+https://github.com/catalyst/moodle-search_elastic
+
+https://github.com/catalyst/moodle-tool_s3logs
+
+https://github.com/catalyst/moodle-tool_objectfs
+
+
+## Branches
+
+| Moodle version    | Branch           |
+| ----------------- | ---------------- |
+| Moodle 3.3+       | master           |
+
+## SDK Usage
 
 To use the SDK, simply include the autoloader contained within this plugin.
 
@@ -30,31 +57,6 @@ $settings->add(new admin_settings_aws_region('my_plugin/s3_region',
     new \lang_string('settings:aws:region_help', 'my_plugin'), ''));
 
 ```
- 
-## Why does this exist? ##
-
-There is a growing collection of various moodle plugins that require these AWS libraries in order to work.
-We don't want to have multiple copies of these libraries bundled into each plugin, firstly because they
-are quite large, but also because it can cause issues with library namespaces and php auto loading.
-
-Plugins that depend on this library are:
-
-https://github.com/catalyst/moodle-local_smartmedia
-
-https://github.com/catalyst/moodle-logstore_standardqueued
-
-https://github.com/catalyst/moodle-search_elastic
-
-https://github.com/catalyst/moodle-tool_s3logs
-
-https://github.com/catalyst/moodle-tool_objectfs
-
-
-## Branches
-
-| Moodle version    | Branch           |
-| ----------------- | ---------------- |
-| Moodle 3.3+       | master           |
 
 
 ## Installation

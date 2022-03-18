@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2022011300;
+$plugin->version   = 2022011301;
 $plugin->release   = '3.208.1'; // This should be in lock step with sdk/CHANGELOG.md.
 $plugin->requires  = 2013111811;
 $plugin->component = 'local_aws';

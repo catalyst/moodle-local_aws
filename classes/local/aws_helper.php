@@ -25,6 +25,10 @@
 
 namespace local_aws\local;
 
+use Aws\CommandInterface;
+use Aws\AwsClient;
+use Psr\Http\Message\RequestInterface;
+
 /**
  * This class contains functions that help plugins to interact with the AWS SDK.
  *
@@ -60,5 +64,37 @@ class aws_helper {
             }
         }
         return $proxy;
+    }
+
+    /**
+     * Configure the provided AWS client to route traffic via the moodle proxy for any hosts not excluded.
+     *
+     * @param AwsClient $client
+     * @return AwsClient
+     */
+    public static function configure_client_proxy(AwsClient $client): AwsClient {
+        $client->getHandlerList()->appendBuild(self::get_callable_middleware(), 'proxy_bypass');
+        return $client;
+    }
+
+    /**
+     * Generate a middleware higher order function to wrap the handler and append proxy configuration based on target.
+     *
+     * @return callable Middleware high order callable.
+     */
+    protected static function get_callable_middleware(): callable {
+        return function (callable $fn) {
+            return function (CommandInterface $command, ?RequestInterface $request = null) use ($fn) {
+                if (isset($request)) {
+                    $target = (string) $request->getUri();
+                    if (!is_proxybypass($target)) {
+                        $command['@http']['proxy'] = self::get_proxy_string();
+                    }
+                }
+
+                $promise = $fn($command, $request);
+                return $promise;
+            };
+        };
     }
 }

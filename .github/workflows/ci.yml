@@ -1,7 +1,7 @@
-name: Run all tests for Moodle 33+
+name: ci
 
 on: [push, pull_request]
 
 jobs:
-  workflow_group_33_plus_ci:
+  test:
     uses: catalyst/catalyst-moodle-workflows/.github/workflows/group-33-plus-ci.yml@main

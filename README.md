@@ -20,6 +20,8 @@ https://github.com/catalyst/moodle-search_elastic
 
 https://github.com/catalyst/moodle-tool_cloudmetrics
 
+https://github.com/catalyst/moodle-tool_emailutils
+
 https://github.com/catalyst/moodle-tool_objectfs
 
 https://github.com/catalyst/moodle-tool_s3logs

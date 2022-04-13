@@ -12,6 +12,8 @@ are quite large, but also because it can cause issues with library namespaces an
 
 Plugins that depend on this library are:
 
+https://github.com/catalyst/moodle-fileconverter_librelambda
+
 https://github.com/catalyst/moodle-local_smartmedia
 
 https://github.com/catalyst/moodle-logstore_standardqueued

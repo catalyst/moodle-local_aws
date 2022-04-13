@@ -18,9 +18,11 @@ https://github.com/catalyst/moodle-logstore_standardqueued
 
 https://github.com/catalyst/moodle-search_elastic
 
-https://github.com/catalyst/moodle-tool_s3logs
+https://github.com/catalyst/moodle-tool_cloudmetrics
 
 https://github.com/catalyst/moodle-tool_objectfs
+
+https://github.com/catalyst/moodle-tool_s3logs
 
 
 ## Branches

@@ -24,7 +24,7 @@ namespace local_aws\step;
  * @copyright  Catalyst IT, 2022
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class example extends \tool_dataflows\step\base_step {
+class example extends \tool_dataflows\step\flow_step {
 
     /**
      * Example step, does nothing.

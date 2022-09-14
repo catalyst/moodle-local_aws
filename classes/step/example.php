@@ -30,7 +30,10 @@ class example extends step\flow_step {
 
     /**
      * Example step, does nothing.
+     *
+     * @param  mixed|null $input
+     * @return bool Returns true if successful, false otherwise.
      */
-    public function execute($input) {
+    public function execute($input = null) {
     }
 }

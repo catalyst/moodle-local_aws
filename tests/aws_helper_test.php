@@ -21,9 +21,12 @@
  * @author    Peter Burnett <peterburnett@catalyst-au.net>
  * @copyright 2020 Catalyst IT
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @covers    \local_aws\local\aws_helper
  */
 
-namespace local_aws\tests;
+namespace local_aws;
+
+use local_aws\local\aws_helper;
 
 /**
  * Testcase for the AWS helper.
@@ -33,25 +36,25 @@ namespace local_aws\tests;
  * @copyright  2020 Catalyst IT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class aws_helper_testcase extends \advanced_testcase {
+class aws_helper_test extends \advanced_testcase {
 
     public function test_get_proxy_string() {
         global $CFG;
         $this->resetAfterTest();
         // Confirm with no config an empty string is returned.
         $CFG->proxyhost = '';
-        $this->assertEquals('', \local_aws\local\aws_helper::get_proxy_string());
+        $this->assertEquals('', aws_helper::get_proxy_string());
 
         // Now set some configs.
         $CFG->proxyhost = '127.0.0.1';
         $CFG->proxyuser = 'user';
         $CFG->proxypassword = 'password';
         $CFG->proxyport = '1337';
-        $this->assertEquals('user:password@127.0.0.1:1337', \local_aws\local\aws_helper::get_proxy_string());
+        $this->assertEquals('user:password@127.0.0.1:1337', aws_helper::get_proxy_string());
 
         // Now change to SOCKS proxy.
         $CFG->proxytype = 'SOCKS5';
-        $this->assertEquals('socks5://user:password@127.0.0.1:1337', \local_aws\local\aws_helper::get_proxy_string());
+        $this->assertEquals('socks5://user:password@127.0.0.1:1337', aws_helper::get_proxy_string());
     }
 
 }

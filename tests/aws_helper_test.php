@@ -38,7 +38,8 @@ class aws_helper_testcase extends \advanced_testcase {
     public function test_get_proxy_string() {
         global $CFG;
         $this->resetAfterTest();
-        // Confirm with no config an emtpy string is returned.
+        // Confirm with no config an empty string is returned.
+        $CFG->proxyhost = '';
         $this->assertEquals('', \local_aws\local\aws_helper::get_proxy_string());
 
         // Now set some configs.

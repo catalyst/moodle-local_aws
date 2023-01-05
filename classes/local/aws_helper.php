@@ -73,7 +73,7 @@ class aws_helper {
      * @return AwsClient
      */
     public static function configure_client_proxy(AwsClient $client): AwsClient {
-        $client->getHandlerList()->appendBuild(self::get_callable_middleware(), 'proxy_bypass');
+        $client->getHandlerList()->appendBuild(self::add_proxy_when_required(), 'proxy_bypass');
         return $client;
     }
 
@@ -82,7 +82,7 @@ class aws_helper {
      *
      * @return callable Middleware high order callable.
      */
-    protected static function get_callable_middleware(): callable {
+    protected static function add_proxy_when_required(): callable {
         return function (callable $fn) {
             return function (CommandInterface $command, ?RequestInterface $request = null) use ($fn) {
                 if (isset($request)) {

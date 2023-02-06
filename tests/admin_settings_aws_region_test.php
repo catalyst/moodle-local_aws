@@ -23,9 +23,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace local_aws\tests;
-
-use local_aws\admin_settings_aws_region;
+namespace local_aws;
 
 /**
  * Testcase for the list of AWS regions admin setting.
@@ -34,8 +32,9 @@ use local_aws\admin_settings_aws_region;
  * @author     Mikhail Golenkov <mikhailgolenkov@catalyst-au.net>
  * @copyright  2020 Catalyst IT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @covers     \local_aws\admin_settings_aws_region
  */
-class admin_settings_aws_region_testcase extends \advanced_testcase {
+class admin_settings_aws_region_test extends \advanced_testcase {
 
     /**
      * Test that output_html() method works and returns HTML string with expected content.

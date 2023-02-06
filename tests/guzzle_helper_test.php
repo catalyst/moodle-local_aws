@@ -16,6 +16,10 @@
 
 namespace local_aws;
 
+defined('MOODLE_INTERNAL') || die();
+
+require_once(__DIR__ . '/../sdk/aws-autoloader.php');
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
@@ -30,6 +34,7 @@ use local_aws\local\guzzle_helper;
  * @author     Andrew Madden <andrewmadden@catalyst-au.net>
  * @copyright  2023 Catalyst IT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @covers     \local_aws\local\guzzle_helper
  */
 class guzzle_helper_test extends \advanced_testcase {
 

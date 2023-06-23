@@ -2833,11 +2833,7 @@ if (!function_exists('Aws\constantly'))  {
 }
 
 if (!function_exists('GuzzleHttp\describe_type')) {
-    if ($CFG->branch >= 402) {
-        require_once $CFG->dirroot. '/lib/guzzlehttp/guzzle/src/functions_include.php';
-    } else {
-        require_once __DIR__ . '/GuzzleHttp/functions_include.php';
-    }
+    require_once $CFG->dirroot. '/lib/guzzlehttp/guzzle/src/functions_include.php';
 }
 require_once __DIR__ . '/GuzzleHttp/Psr7/functions_include.php';
 require_once __DIR__ . '/GuzzleHttp/Promise/functions_include.php';

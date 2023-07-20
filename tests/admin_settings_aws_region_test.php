@@ -37,6 +37,15 @@ namespace local_aws;
 class admin_settings_aws_region_test extends \advanced_testcase {
 
     /**
+     * Cleanup after all tests are executed.
+     *
+     * @return void
+     */
+    public function tearDown(): void {
+        $admin = admin_get_root();
+        $admin->purge_children(true);
+    }
+    /**
      * Test that output_html() method works and returns HTML string with expected content.
      */
     public function test_output_html() {

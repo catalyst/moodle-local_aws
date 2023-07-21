@@ -142,6 +142,12 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise getJourneyExecutionActivityMetricsAsync(array $args = [])
  * @method \Aws\Result getJourneyExecutionMetrics(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getJourneyExecutionMetricsAsync(array $args = [])
+ * @method \Aws\Result getJourneyRunExecutionActivityMetrics(array $args = [])
+ * @method \GuzzleHttp\Promise\Promise getJourneyRunExecutionActivityMetricsAsync(array $args = [])
+ * @method \Aws\Result getJourneyRunExecutionMetrics(array $args = [])
+ * @method \GuzzleHttp\Promise\Promise getJourneyRunExecutionMetricsAsync(array $args = [])
+ * @method \Aws\Result getJourneyRuns(array $args = [])
+ * @method \GuzzleHttp\Promise\Promise getJourneyRunsAsync(array $args = [])
  * @method \Aws\Result getPushTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getPushTemplateAsync(array $args = [])
  * @method \Aws\Result getRecommenderConfiguration(array $args = [])
@@ -244,5 +250,7 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise updateVoiceChannelAsync(array $args = [])
  * @method \Aws\Result updateVoiceTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateVoiceTemplateAsync(array $args = [])
+ * @method \Aws\Result verifyOTPMessage(array $args = [])
+ * @method \GuzzleHttp\Promise\Promise verifyOTPMessageAsync(array $args = [])
  */
 class PinpointClient extends AwsClient {}

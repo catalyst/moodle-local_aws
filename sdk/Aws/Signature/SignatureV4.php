@@ -2,6 +2,14 @@
 namespace Aws\Signature;
 
 use Aws\Credentials\CredentialsInterface;
+use AWS\CRT\Auth\Signable;
+use AWS\CRT\Auth\SignatureType;
+use AWS\CRT\Auth\Signing;
+use AWS\CRT\Auth\SigningAlgorithm;
+use AWS\CRT\Auth\SigningConfigAWS;
+use AWS\CRT\Auth\StaticCredentialsProvider;
+use AWS\CRT\HTTP\Request;
+use Aws\Exception\CommonRuntimeException;
 use Aws\Exception\CouldNotCreateChecksumException;
 use GuzzleHttp\Psr7;
 use Psr\Http\Message\RequestInterface;
@@ -26,6 +34,9 @@ class SignatureV4 implements SignatureInterface
     /** @var bool */
     private $unsigned;
 
+    /** @var bool */
+    private $useV4a;
+
     /**
      * The following headers are not signed because signing these headers
      * would potentially cause a signature mismatch when sending a request
@@ -33,7 +44,7 @@ class SignatureV4 implements SignatureInterface
      *
      * @return array
      */
-    private function getHeaderBlacklist()
+    protected function getHeaderBlacklist()
     {
         return [
             'cache-control'         => true,
@@ -74,6 +85,7 @@ class SignatureV4 implements SignatureInterface
         $this->service = $service;
         $this->region = $region;
         $this->unsigned = isset($options['unsigned-body']) ? $options['unsigned-body'] : false;
+        $this->useV4a = isset($options['use_v4a']) && $options['use_v4a'] === true;
     }
 
     /**
@@ -93,6 +105,11 @@ class SignatureV4 implements SignatureInterface
             $parsed['headers']['X-Amz-Security-Token'] = [$token];
         }
         $service = isset($signingService) ? $signingService : $this->service;
+
+        if ($this->useV4a) {
+            return $this->signWithV4a($credentials, $request, $service);
+        }
+
         $cs = $this->createScope($sdt, $this->region, $service);
         $payload = $this->getPayload($request);
 
@@ -149,14 +166,21 @@ class SignatureV4 implements SignatureInterface
         $expires,
         array $options = []
     ) {
-
         $startTimestamp = isset($options['start_time'])
-                            ? $this->convertToTimestamp($options['start_time'], null)
-                            : time();
-
+            ? $this->convertToTimestamp($options['start_time'], null)
+            : time();
         $expiresTimestamp = $this->convertToTimestamp($expires, $startTimestamp);
 
+        if ($this->useV4a) {
+            return $this->presignWithV4a(
+                $request,
+                $credentials,
+                $this->convertExpires($expiresTimestamp, $startTimestamp)
+            );
+        }
+
         $parsed = $this->createPresignedRequest($request, $credentials);
+
         $payload = $this->getPresignedPayload($request);
         $httpDate = gmdate(self::ISO8601_BASIC, $startTimestamp);
         $shortDate = substr($httpDate, 0, 8);
@@ -324,11 +348,11 @@ class SignatureV4 implements SignatureInterface
         ksort($query);
         foreach ($query as $k => $v) {
             if (!is_array($v)) {
-                $qs .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+                $qs .= rawurlencode($k) . '=' . rawurlencode($v !== null ? $v : '') . '&';
             } else {
                 sort($v);
                 foreach ($v as $value) {
-                    $qs .= rawurlencode($k) . '=' . rawurlencode($value) . '&';
+                    $qs .= rawurlencode($k) . '=' . rawurlencode($value !== null ? $value : '') . '&';
                 }
             }
         }
@@ -342,7 +366,7 @@ class SignatureV4 implements SignatureInterface
             $timestamp = $dateValue->getTimestamp();
         } elseif (!is_numeric($dateValue)) {
             $timestamp = strtotime($dateValue,
-                                   $relativeTimeBase === null ? time() : $relativeTimeBase
+                $relativeTimeBase === null ? time() : $relativeTimeBase
             );
         } else {
             $timestamp = $dateValue;
@@ -419,6 +443,134 @@ class SignatureV4 implements SignatureInterface
             $req['headers'],
             $req['body'],
             $req['version']
+        );
+    }
+
+    private function verifyCRTLoaded()
+    {
+        if (!extension_loaded('awscrt')) {
+            throw new CommonRuntimeException(
+                "AWS Common Runtime for PHP is required to use Signature V4A"
+                . ".  Please install it using the instructions found at"
+                . " https://github.com/aws/aws-sdk-php/blob/master/CRT_INSTRUCTIONS.md"
+            );
+        }
+    }
+
+    private function createCRTStaticCredentialsProvider($credentials)
+    {
+        return new StaticCredentialsProvider([
+            'access_key_id' => $credentials->getAccessKeyId(),
+            'secret_access_key' => $credentials->getSecretKey(),
+            'session_token' => $credentials->getSecurityToken(),
+        ]);
+    }
+
+    private function removeIllegalV4aHeaders(&$request)
+    {
+        $illegalV4aHeaders = [
+            self::AMZ_CONTENT_SHA256_HEADER,
+            "aws-sdk-invocation-id",
+            "aws-sdk-retry",
+            'x-amz-region-set'
+        ];
+        $storedHeaders = [];
+
+        foreach ($illegalV4aHeaders as $header) {
+            if ($request->hasHeader($header)){
+                $storedHeaders[$header] = $request->getHeader($header);
+                $request = $request->withoutHeader($header);
+            }
+        }
+
+        return $storedHeaders;
+    }
+
+    private function CRTRequestFromGuzzleRequest($request)
+    {
+        return new Request(
+            $request->getMethod(),
+            (string) $request->getUri(),
+            [], //leave empty as the query is parsed from the uri object
+            array_map(function ($header) {return $header[0];}, $request->getHeaders())
+        );
+    }
+
+    /**
+     * @param CredentialsInterface $credentials
+     * @param RequestInterface $request
+     * @param $signingService
+     * @return RequestInterface
+     */
+    protected function signWithV4a(CredentialsInterface $credentials, RequestInterface $request, $signingService)
+    {
+        $this->verifyCRTLoaded();
+        $credentials_provider = $this->createCRTStaticCredentialsProvider($credentials);
+        $signingConfig = new SigningConfigAWS([
+            'algorithm' => SigningAlgorithm::SIGv4_ASYMMETRIC,
+            'signature_type' => SignatureType::HTTP_REQUEST_HEADERS,
+            'credentials_provider' => $credentials_provider,
+            'signed_body_value' => $this->getPayload($request),
+            'region' => "*",
+            'service' => $signingService,
+            'date' => time(),
+        ]);
+
+        $removedIllegalHeaders = $this->removeIllegalV4aHeaders($request);
+        $http_request = $this->CRTRequestFromGuzzleRequest($request);
+
+        Signing::signRequestAws(
+            Signable::fromHttpRequest($http_request),
+            $signingConfig, function ($signing_result, $error_code) use (&$http_request) {
+            $signing_result->applyToHttpRequest($http_request);
+        });
+        foreach ($removedIllegalHeaders as $header => $value) {
+            $request = $request->withHeader($header, $value);
+        }
+
+        $sigV4AHeaders = $http_request->headers();
+        foreach ($sigV4AHeaders->toArray() as $h => $v) {
+            $request = $request->withHeader($h, $v);
+        }
+
+        return $request;
+    }
+
+    protected function presignWithV4a(
+        RequestInterface $request,
+        CredentialsInterface $credentials,
+        $expires
+    )
+    {
+        $this->verifyCRTLoaded();
+        $credentials_provider = $this->createCRTStaticCredentialsProvider($credentials);
+        $signingConfig = new SigningConfigAWS([
+            'algorithm' => SigningAlgorithm::SIGv4_ASYMMETRIC,
+            'signature_type' => SignatureType::HTTP_REQUEST_QUERY_PARAMS,
+            'credentials_provider' => $credentials_provider,
+            'signed_body_value' => $this->getPresignedPayload($request),
+            'region' => "*",
+            'service' => $this->service,
+            'date' => time(),
+            'expiration_in_seconds' => $expires
+        ]);
+
+        $this->removeIllegalV4aHeaders($request);
+        foreach ($this->getHeaderBlacklist() as $headerName => $headerValue) {
+            if ($request->hasHeader($headerName)) {
+                $request = $request->withoutHeader($headerName);
+            }
+        }
+
+        $http_request = $this->CRTRequestFromGuzzleRequest($request);
+        Signing::signRequestAws(
+            Signable::fromHttpRequest($http_request),
+            $signingConfig, function ($signing_result, $error_code) use (&$http_request) {
+            $signing_result->applyToHttpRequest($http_request);
+        });
+
+        return $request->withUri(
+            new Psr7\Uri($http_request->pathAndQuery())
         );
     }
 }

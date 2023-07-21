@@ -287,31 +287,36 @@ final class Partition implements ArrayAccess, PartitionInterface
     {
         $variantTags = [];
         if (isset($options['use_fips_endpoint'])) {
-            if ($options['use_fips_endpoint']->isUseFipsEndpoint()) {
+            $useFips = $options['use_fips_endpoint'];
+            if (is_bool($useFips)) {
+                $useFips && $variantTags[] = 'fips';
+            } elseif ($useFips->isUseFipsEndpoint()) {
                 $variantTags[] = 'fips';
             }
         }
         if (isset($options['use_dual_stack_endpoint'])) {
-            if ($options['use_dual_stack_endpoint']->isUseDualStackEndpoint()) {
+            $useDualStack = $options['use_dual_stack_endpoint'];
+            if (is_bool($useDualStack)) {
+                $useDualStack && $variantTags[] = 'dualstack';
+            } elseif ($useDualStack->isUseDualStackEndpoint()) {
                 $variantTags[] = 'dualstack';
             }
         }
         if (!empty($variantTags)) {
             if (isset($data['variants'])) {
                 foreach ($data['variants'] as $variant) {
-                    if ($variant['tags'] == $variantTags) {
+                    if (array_count_values($variant['tags']) == array_count_values($variantTags)) {
                         return $variant;
                     }
                 }
             }
             if (isset($this->data['defaults']['variants'])) {
                 foreach ($this->data['defaults']['variants'] as $variant) {
-                    if ($variant['tags'] == $variantTags) {
+                    if (array_count_values($variant['tags']) == array_count_values($variantTags)) {
                         return $variant;
                     }
                 }
             }
         }
     }
-
 }

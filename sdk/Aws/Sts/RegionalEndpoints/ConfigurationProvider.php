@@ -82,7 +82,7 @@ class ConfigurationProvider extends AbstractConfigurationProvider
         $configProviders[] = self::fallback();
 
         $memo = self::memoize(
-            call_user_func_array('self::chain', $configProviders)
+            call_user_func_array([ConfigurationProvider::class, 'chain'], $configProviders)
         );
 
         if (isset($config['sts_regional_endpoints'])
@@ -124,7 +124,7 @@ class ConfigurationProvider extends AbstractConfigurationProvider
     {
         return function () {
             return Promise\Create::promiseFor(
-                new Configuration(self::DEFAULT_ENDPOINTS_TYPE)
+                new Configuration(self::DEFAULT_ENDPOINTS_TYPE, true)
             );
         };
     }
@@ -149,7 +149,7 @@ class ConfigurationProvider extends AbstractConfigurationProvider
         $profile = $profile ?: (getenv(self::ENV_PROFILE) ?: 'default');
 
         return function () use ($profile, $filename) {
-            if (!is_readable($filename)) {
+            if (!@is_readable($filename)) {
                 return self::reject("Cannot read configuration from $filename");
             }
             $data = \Aws\parse_ini_file($filename, true);
@@ -160,7 +160,7 @@ class ConfigurationProvider extends AbstractConfigurationProvider
                 return self::reject("'$profile' not found in config file");
             }
             if (!isset($data[$profile][self::INI_ENDPOINTS_TYPE])) {
-                return self::reject("Required STS regional endpoints config values 
+                return self::reject("Required STS regional endpoints config values
                     not present in INI profile '{$profile}' ({$filename})");
             }
 

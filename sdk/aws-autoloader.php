@@ -2832,7 +2832,7 @@ if (!function_exists('Aws\constantly')) {
     require_once __DIR__ . '/Aws/functions.php';
 }
 
-if ($CFG->branch >= 402) {
+if ($CFG->branch >= 402 || file_exists($CFG->dirroot. '/lib/guzzlehttp/guzzle/src/functions_include.php')) {
     require_once $CFG->dirroot. '/lib/guzzlehttp/guzzle/src/functions_include.php';
 } else {
     require_once __DIR__ . '/GuzzleHttp/functions_include.php';

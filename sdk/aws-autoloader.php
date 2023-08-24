@@ -2820,11 +2820,12 @@ $mapping = array(
     'Symfony\Polyfill\Intl\Idn\bootstrap' => __DIR__ . '/Symfony/Polyfill/Intl/Idn/bootstrap.php',
 );
 
+// Register these classes with higher priority than any which might already be included in core Moodle.
 spl_autoload_register(function ($class) use ($mapping) {
     if (isset($mapping[$class])) {
         require $mapping[$class];
     }
-}, true);
+}, true, true);
 
 if ((!isset($CFG->libraries) || !file_exists($CFG->libraries . '/optional/aws/aws-sdk-php/src/functions.php'))
     && !function_exists('Aws\constantly'))  {

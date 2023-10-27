@@ -1,8 +1,6 @@
 <?php
 namespace Aws\Sns;
 
-use Psr\Http\Message\RequestInterface;
-
 /**
  * Represents an SNS message received over http(s).
  */
@@ -15,20 +13,15 @@ class Message implements \ArrayAccess, \IteratorAggregate
         'TopicArn',
         'Type',
         'Signature',
-        ['SigningCertURL', 'SigningCertUrl'],
+        'SigningCertURL',
         'SignatureVersion',
-    ];
-
-    private static $subscribeKeys = [
-        ['SubscribeURL', 'SubscribeUrl'],
-        'Token'
     ];
 
     /** @var array The message data */
     private $data;
 
     /**
-     * Creates a Message object from the raw POST data
+     * Creates a message object from the raw POST data
      *
      * @return Message
      * @throws \RuntimeException If the POST data is absent, or not a valid JSON document
@@ -40,30 +33,8 @@ class Message implements \ArrayAccess, \IteratorAggregate
             throw new \RuntimeException('SNS message type header not provided.');
         }
 
-        // Read the raw POST data and JSON-decode it into a message.
-        return self::fromJsonString(file_get_contents('php://input'));
-    }
-
-    /**
-     * Creates a Message object from a PSR-7 Request or ServerRequest object.
-     *
-     * @param RequestInterface $request
-     * @return Message
-     */
-    public static function fromPsrRequest(RequestInterface $request)
-    {
-        return self::fromJsonString($request->getBody());
-    }
-
-    /**
-     * Creates a Message object from a JSON-decodable string.
-     *
-     * @param string $requestBody
-     * @return Message
-     */
-    public static function fromJsonString($requestBody)
-    {
-        $data = json_decode($requestBody, true);
+        // Read the raw POST data and JSON-decode it.
+        $data = json_decode(file_get_contents('php://input'), true);
         if (JSON_ERROR_NONE !== json_last_error() || !is_array($data)) {
             throw new \RuntimeException('Invalid POST data.');
         }
@@ -86,37 +57,32 @@ class Message implements \ArrayAccess, \IteratorAggregate
         if ($data['Type'] === 'SubscriptionConfirmation'
             || $data['Type'] === 'UnsubscribeConfirmation'
         ) {
-            $this->validateRequiredKeys($data, self::$subscribeKeys);
+            $this->validateRequiredKeys($data, ['SubscribeURL', 'Token']);
         }
 
         $this->data = $data;
     }
 
-    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator($this->data);
     }
 
-    #[\ReturnTypeWillChange]
     public function offsetExists($key)
     {
         return isset($this->data[$key]);
     }
 
-    #[\ReturnTypeWillChange]
     public function offsetGet($key)
     {
         return isset($this->data[$key]) ? $this->data[$key] : null;
     }
 
-    #[\ReturnTypeWillChange]
     public function offsetSet($key, $value)
     {
         $this->data[$key] = $value;
     }
 
-    #[\ReturnTypeWillChange]
     public function offsetUnset($key)
     {
         unset($this->data[$key]);
@@ -135,23 +101,7 @@ class Message implements \ArrayAccess, \IteratorAggregate
     private function validateRequiredKeys(array $data, array $keys)
     {
         foreach ($keys as $key) {
-            $keyIsArray = is_array($key);
-            if (!$keyIsArray) {
-                $found = isset($data[$key]);
-            } else {
-                $found = false;
-                foreach ($key as $keyOption) {
-                    if (isset($data[$keyOption])) {
-                        $found = true;
-                        break;
-                    }
-                }
-            }
-
-            if (!$found) {
-                if ($keyIsArray) {
-                    $key = $key[0];
-                }
+            if (!isset($data[$key])) {
                 throw new \InvalidArgumentException(
                     "\"{$key}\" is required to verify the SNS Message."
                 );

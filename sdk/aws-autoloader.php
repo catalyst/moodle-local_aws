@@ -2820,15 +2820,25 @@ $mapping = array(
     'Symfony\Polyfill\Intl\Idn\bootstrap' => __DIR__ . '/Symfony/Polyfill/Intl/Idn/bootstrap.php',
 );
 
+global $CFG;
+
 spl_autoload_register(function ($class) use ($mapping) {
     if (isset($mapping[$class])) {
         require $mapping[$class];
     }
 }, true);
 
-require __DIR__ . '/Aws/functions.php';
-require __DIR__ . '/GuzzleHttp/functions_include.php';
-require __DIR__ . '/GuzzleHttp/Psr7/functions_include.php';
-require __DIR__ . '/GuzzleHttp/Promise/functions_include.php';
-require __DIR__ . '/JmesPath/JmesPath.php';
-require __DIR__ . '/Symfony/Polyfill/Intl/Idn/bootstrap.php';
+if (!function_exists('Aws\constantly')) {
+    require_once __DIR__ . '/Aws/functions.php';
+}
+
+if ($CFG->branch >= 402 || file_exists($CFG->dirroot. '/lib/guzzlehttp/guzzle/src/functions_include.php')) {
+    require_once $CFG->dirroot. '/lib/guzzlehttp/guzzle/src/functions_include.php';
+} else {
+    require_once __DIR__ . '/GuzzleHttp/functions_include.php';
+}
+
+require_once __DIR__ . '/GuzzleHttp/Psr7/functions_include.php';
+require_once __DIR__ . '/GuzzleHttp/Promise/functions_include.php';
+require_once __DIR__ . '/JmesPath/JmesPath.php';
+require_once __DIR__ . '/Symfony/Polyfill/Intl/Idn/bootstrap.php';

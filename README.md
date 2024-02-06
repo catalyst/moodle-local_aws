@@ -35,9 +35,9 @@ https://github.com/catalyst/moodle-tool_s3logs
 
 ## Branches
 
-| Moodle version    | Branch           |
-| ----------------- | ---------------- |
-| Moodle 3.3+       | master           |
+| Moodle version | Branch           |
+|----------------| ---------------- |
+| Moodle 3.9+    | master           |
 
 ## SDK Usage
 
@@ -51,7 +51,7 @@ If you are writing a plugin that will use this SDK, it is recommended that you a
 
 ```php
 $plugin->dependencies = array(
-    'local_aws' => 2022011300
+    'local_aws' => 2024020600
 );
 ```
 

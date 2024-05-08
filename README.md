@@ -35,9 +35,9 @@ https://github.com/catalyst/moodle-tool_s3logs
 
 ## Branches
 
-| Moodle version    | Branch           |
-| ----------------- | ---------------- |
-| Moodle 3.3+       | master           |
+| Moodle version   | Branch           |
+|------------------| ---------------- |
+| Moodle 3.3 - 4.3 | MOODLE_33_STABLE |
 
 ## SDK Usage
 

@@ -1,5 +1,8 @@
 [![Build Status](https://github.com/catalyst/moodle-local_aws/actions/workflows/ci.yml/badge.svg)](https://github.com/catalyst/moodle-local_aws/actions)
 
+# Notice
+**Since Moodle 4.4, the AWS SDK is bundled within Moodle itself making this plugin obselete. This plugin is no longer receiving updates.**
+
 # AWS SDK - Moodle Plugin
 
 A moodle plugin containing Amazon's SDK for PHP.

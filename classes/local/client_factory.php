@@ -44,10 +44,17 @@ class client_factory {
     public static function get_client(string $class, array $opts): AwsClient {
         // Modify the opts to add HTTP timeouts.
         if (empty($opts['http'])) {
-            $opts['http'] = ['connect_timeout' => HOURSECS];
-        } else if (is_array($opts['http'] && !array_key_exists('connect_timeout', $opts['http']))) {
-            // Try not to override existing settings.
-            $opts['http']['connect_timeout'] = HOURSECS;
+            $opts['http'] = ['connect_timeout' => 5, 'timeout' => HOURSECS];
+
+        } else if (is_array($opts['http'])) {
+            if (!array_key_exists('connect_timeout', $opts['http'])) {
+                // Try not to override existing settings.
+                $opts['http']['connect_timeout'] = 5;
+            }
+            if (!array_key_exists('timeout', $opts['http'])) {
+                // Try not to override existing settings.
+                $opts['http']['timeout'] = HOURSECS;
+            }
         }
 
         // Blindly trust the call here. If it exceptions, the raw message is the most useful.

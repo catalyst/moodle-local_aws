@@ -35,7 +35,6 @@ namespace local_aws;
  * @covers     \local_aws\admin_settings_aws_region
  */
 class admin_settings_aws_region_test extends \advanced_testcase {
-
     /**
      * Cleanup after all tests are executed.
      *
@@ -50,13 +49,19 @@ class admin_settings_aws_region_test extends \advanced_testcase {
      */
     public function test_output_html() {
         $this->resetAfterTest();
-        $setting = new admin_settings_aws_region('test_aws_region',
-            'Test visible name', 'Test description', 'Test default setting');
+        $setting = new admin_settings_aws_region(
+            'test_aws_region',
+            'Test visible name',
+            'Test description',
+            'Test default setting'
+        );
         $html = $setting->output_html('');
         $this->assertTrue(strpos($html, 'Test visible name') !== false);
         $this->assertTrue(strpos($html, 'Test description') !== false);
         $this->assertTrue(strpos($html, 'Default: Test default setting') !== false);
-        $this->assertTrue(strpos($html, '<input type="text" list="s__test_aws_region" name="s__test_aws_region" value=""') !== false);
+        $this->assertTrue(
+            strpos($html, '<input type="text" list="s__test_aws_region" name="s__test_aws_region" value=""') !== false
+        );
         $this->assertTrue(strpos($html, '<datalist id="s__test_aws_region">') !== false);
         $this->assertTrue(strpos($html, '<option value="') !== false);
     }

@@ -19,19 +19,19 @@ class QueryParser extends AbstractParser
     private $honorResultWrapper;
 
     /**
-     * @param Service   $api                Service description
-     * @param XmlParser $xmlParser          Optional XML parser
-     * @param bool      $honorResultWrapper Set to false to disable the peeling
-     *                                      back of result wrappers from the
-     *                                      output structure.
+     * @param Service                          $api                Service description
+     * @param \Aws\Api\Parser\XmlParser $xmlParser          Optional XML parser
+     * @param bool                             $honorResultWrapper Set to false to disable the peeling
+     *                                                            back of result wrappers from the
+     *                                                            output structure.
      */
     public function __construct(
         Service $api,
-        XmlParser $xmlParser = null,
+        \Aws\Api\Parser\XmlParser $xmlParser = null,
         $honorResultWrapper = true
     ) {
         parent::__construct($api);
-        $this->parser = $xmlParser ?: new XmlParser();
+        $this->parser = $xmlParser ?: new \Aws\Api\Parser\XmlParser();
         $this->honorResultWrapper = $honorResultWrapper;
     }
 

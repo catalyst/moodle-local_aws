@@ -118,7 +118,7 @@ class Uri implements UriInterface
         return array_map('urldecode', $result);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return self::composeComponents(
             $this->scheme,
@@ -420,12 +420,12 @@ class Uri implements UriInterface
         return $uri;
     }
 
-    public function getScheme()
+    public function getScheme(): string
     {
         return $this->scheme;
     }
 
-    public function getAuthority()
+    public function getAuthority(): string
     {
         $authority = $this->host;
         if ($this->userInfo !== '') {
@@ -439,37 +439,37 @@ class Uri implements UriInterface
         return $authority;
     }
 
-    public function getUserInfo()
+    public function getUserInfo(): string
     {
         return $this->userInfo;
     }
 
-    public function getHost()
+    public function getHost(): string
     {
         return $this->host;
     }
 
-    public function getPort()
+    public function getPort(): ?int
     {
         return $this->port;
     }
 
-    public function getPath()
+    public function getPath(): string
     {
         return $this->path;
     }
 
-    public function getQuery()
+    public function getQuery(): string
     {
         return $this->query;
     }
 
-    public function getFragment()
+    public function getFragment(): string
     {
         return $this->fragment;
     }
 
-    public function withScheme($scheme)
+    public function withScheme($scheme): \Psr\Http\Message\UriInterface
     {
         $scheme = $this->filterScheme($scheme);
 
@@ -485,7 +485,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withUserInfo($user, $password = null)
+    public function withUserInfo($user, $password = null): \Psr\Http\Message\UriInterface
     {
         $info = $this->filterUserInfoComponent($user);
         if ($password !== null) {
@@ -503,7 +503,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withHost($host)
+    public function withHost($host): \Psr\Http\Message\UriInterface
     {
         $host = $this->filterHost($host);
 
@@ -518,7 +518,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withPort($port)
+    public function withPort($port): \Psr\Http\Message\UriInterface
     {
         $port = $this->filterPort($port);
 
@@ -534,7 +534,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withPath($path)
+    public function withPath($path): \Psr\Http\Message\UriInterface
     {
         $path = $this->filterPath($path);
 
@@ -549,7 +549,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withQuery($query)
+    public function withQuery($query): \Psr\Http\Message\UriInterface
     {
         $query = $this->filterQueryAndFragment($query);
 
@@ -563,7 +563,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withFragment($fragment)
+    public function withFragment($fragment): \Psr\Http\Message\UriInterface
     {
         $fragment = $this->filterQueryAndFragment($fragment);
 

@@ -14,13 +14,13 @@ class RestXmlParser extends AbstractRestParser
     use PayloadParserTrait;
 
     /**
-     * @param Service   $api    Service description
-     * @param XmlParser $parser XML body parser
+     * @param Service                          $api    Service description
+     * @param \Aws\Api\Parser\XmlParser $parser XML body parser
      */
-    public function __construct(Service $api, XmlParser $parser = null)
+    public function __construct(Service $api, \Aws\Api\Parser\XmlParser $parser = null)
     {
         parent::__construct($api);
-        $this->parser = $parser ?: new XmlParser();
+        $this->parser = $parser ?: new \Aws\Api\Parser\XmlParser();
     }
 
     protected function payload(

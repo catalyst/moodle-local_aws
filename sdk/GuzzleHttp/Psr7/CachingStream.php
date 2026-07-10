@@ -34,7 +34,7 @@ class CachingStream implements StreamInterface
         $this->stream = $target ?: new Stream(Utils::tryFopen('php://temp', 'r+'));
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         $remoteSize = $this->remoteStream->getSize();
 
@@ -45,12 +45,12 @@ class CachingStream implements StreamInterface
         return max($this->stream->getSize(), $remoteSize);
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET): void
     {
         if ($whence == SEEK_SET) {
             $byte = $offset;
@@ -81,7 +81,7 @@ class CachingStream implements StreamInterface
         }
     }
 
-    public function read($length)
+    public function read($length): string
     {
         // Perform a regular read on any previously read data from the buffer
         $data = $this->stream->read($length);
@@ -110,7 +110,7 @@ class CachingStream implements StreamInterface
         return $data;
     }
 
-    public function write($string)
+    public function write($string): int
     {
         // When appending to the end of the currently read stream, you'll want
         // to skip bytes from being read from the remote stream to emulate
@@ -124,7 +124,7 @@ class CachingStream implements StreamInterface
         return $this->stream->write($string);
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return $this->stream->eof() && $this->remoteStream->eof();
     }
@@ -132,7 +132,7 @@ class CachingStream implements StreamInterface
     /**
      * Close both the remote stream and buffer stream
      */
-    public function close()
+    public function close(): void
     {
         $this->remoteStream->close() && $this->stream->close();
     }

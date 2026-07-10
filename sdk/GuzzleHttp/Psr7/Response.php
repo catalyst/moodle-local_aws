@@ -114,17 +114,17 @@ class Response implements ResponseInterface
         $this->protocol = $version;
     }
 
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
         return $this->statusCode;
     }
 
-    public function getReasonPhrase()
+    public function getReasonPhrase(): string
     {
         return $this->reasonPhrase;
     }
 
-    public function withStatus($code, $reasonPhrase = '')
+    public function withStatus($code, $reasonPhrase = ''): \Psr\Http\Message\ResponseInterface
     {
         $this->assertStatusCodeIsInteger($code);
         $code = (int) $code;

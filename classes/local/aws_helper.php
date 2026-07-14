@@ -36,7 +36,6 @@ use Psr\Http\Message\RequestInterface;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class aws_helper {
-
     /**
      * This creates a proxy string suitable for use with the AWS SDK.
      *
@@ -57,7 +56,7 @@ class aws_helper {
         if (!empty($CFG->proxyhost)) {
             $proxy = $CFG->proxyhost;
             if (!empty($CFG->proxyport)) {
-                $proxy .= ':'. $CFG->proxyport;
+                $proxy .= ':' . $CFG->proxyport;
             }
             if (!empty($CFG->proxyuser) && !empty($CFG->proxypassword)) {
                 $proxy = $protocol . $CFG->proxyuser . ':' . $CFG->proxypassword . '@' . $proxy;

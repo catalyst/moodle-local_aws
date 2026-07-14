@@ -28,7 +28,6 @@ use Psr\Http\Message\RequestInterface;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class guzzle_helper {
-
     /**
      * Add additional configuration to the Guzzle client. For example, adding additional Middleware.
      *

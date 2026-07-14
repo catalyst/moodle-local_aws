@@ -37,7 +37,6 @@ use local_aws\local\aws_helper;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class aws_helper_test extends \advanced_testcase {
-
     public function test_get_proxy_string() {
         global $CFG;
         $this->resetAfterTest();
@@ -56,5 +55,4 @@ class aws_helper_test extends \advanced_testcase {
         $CFG->proxytype = 'SOCKS5';
         $this->assertEquals('socks5://user:password@127.0.0.1:1337', aws_helper::get_proxy_string());
     }
-
 }

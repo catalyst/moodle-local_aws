@@ -22,12 +22,12 @@ class PsrStream implements Psr7StreamInterface
         $this->stream = $stream;
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->stream->seek(0);
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         return $this->stream->getContents();
     }

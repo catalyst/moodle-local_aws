@@ -37,7 +37,6 @@ use local_aws\local\guzzle_helper;
  * @covers     \local_aws\local\guzzle_helper
  */
 class guzzle_helper_test extends \advanced_testcase {
-
     /**
      * This method runs before every test.
      */

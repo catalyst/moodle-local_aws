@@ -126,10 +126,10 @@ if (!defined('IDNA_ERROR_CONTEXTJ')) {
 
 if (PHP_VERSION_ID < 70400) {
     if (!function_exists('idn_to_ascii')) {
-        function idn_to_ascii($domain, $options = IDNA_DEFAULT, $variant = INTL_IDNA_VARIANT_2003, &$idna_info = array()) { return p\Idn::idn_to_ascii($domain, $options, $variant, $idna_info); }
+        function idn_to_ascii($domain, $options = IDNA_DEFAULT, $variant = INTL_IDNA_VARIANT_2003, &$idna_info = array()) { return p\Idn::idn_to_ascii($domain, $options, $variant, $idna_info); } // phpcs:ignore PHPCompatibility.Constants.RemovedConstants.intl_idna_variant_2003Deprecated
     }
     if (!function_exists('idn_to_utf8')) {
-        function idn_to_utf8($domain, $options = IDNA_DEFAULT, $variant = INTL_IDNA_VARIANT_2003, &$idna_info = array()) { return p\Idn::idn_to_utf8($domain, $options, $variant, $idna_info); }
+        function idn_to_utf8($domain, $options = IDNA_DEFAULT, $variant = INTL_IDNA_VARIANT_2003, &$idna_info = array()) { return p\Idn::idn_to_utf8($domain, $options, $variant, $idna_info); } // phpcs:ignore PHPCompatibility.Constants.RemovedConstants.intl_idna_variant_2003Deprecated
     }
 } else {
     if (!function_exists('idn_to_ascii')) {

@@ -36,7 +36,7 @@ require_once($CFG->dirroot . '/lib/adminlib.php');
  * @copyright  2020 Catalyst IT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class admin_settings_aws_region extends \admin_setting_configtext {
+class admin_settings_aws_region extends \core\setting\type\text {
     /**
      * Return part of form with setting.
      *
@@ -81,6 +81,6 @@ class admin_settings_aws_region extends \admin_setting_configtext {
         $element .= \html_writer::end_tag('datalist');
         $element .= \html_writer::end_tag('div');
 
-        return format_admin_setting($this, $this->visiblename, $element, $this->description, true, '', $default, $query);
+        return $this->render($query, $element, $default, true, '', $this->visiblename, $this->description);
     }
 }

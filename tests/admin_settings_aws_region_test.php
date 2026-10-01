@@ -25,6 +25,8 @@
 
 namespace local_aws;
 
+use core\setting\root;
+
 /**
  * Testcase for the list of AWS regions admin setting.
  *
@@ -41,7 +43,7 @@ class admin_settings_aws_region_test extends \advanced_testcase {
      * @return void
      */
     public function tearDown(): void {
-        $admin = admin_get_root();
+        $admin = root::get();
         $admin->purge_children(true);
     }
     /**
